@@ -262,8 +262,4 @@ ${e}`);
 			return item;
 		})());
 	}
-	if(getQueryVariable("isDark") === "true"){
-		document.getElementById("left-drawer").classList.remove("mdui-color-white");
-		document.getElementById("left-drawer").classList.add("mdui-theme-layout-dark");
-	}
 }

@@ -13,17 +13,21 @@
 (function() {
 	'use strict';
 	let use_settings = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-settings")) || {};
-		if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
-			if (use_settings.WCSSPDLF_D){
-				let WCSSPDLF_D = document.createElement("script");
-				WCSSPDLF_D.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js");
-				document.head.appendChild(WCSSPDLF_D);
-			}
-			if (use_settings.WCSSMAM_S) {
-				let WCSSMAM_S = document.createElement("script");
-				WCSSMAM_S.setAttribute("src", "./WCSSMAMaS/tms-main.js");
-				document.head.appendChild(WCSSMAM_S);
-			}
+	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
+		if (use_settings.WCSSPDLF_D){
+			let WCSSPDLF_D = document.createElement("script");
+			WCSSPDLF_D.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js");
+			document.head.appendChild(WCSSPDLF_D);
 		}
+		if (use_settings.WCSSMAM_S) {
+			let WCSSMAM_S = document.createElement("script");
+			WCSSMAM_S.setAttribute("src", "./WCSSMAMaS/tms-main.js");
+			document.head.appendChild(WCSSMAM_S);
+		}
+		if(getQueryVariable("isDark") === "true"){
+			document.getElementById("left-drawer").classList.remove("mdui-color-white");
+			document.getElementById("left-drawer").classList.add("mdui-theme-layout-dark");
+		}
+	}
 	// Your code here...
 })();
