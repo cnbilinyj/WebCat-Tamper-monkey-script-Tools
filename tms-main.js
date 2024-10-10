@@ -21,8 +21,18 @@
 		}
 		if (use_settings.WCSSMAM_S) {
 			let WCSSMAM_S = document.createElement("script");
-			WCSSMAM_S.setAttribute("src", "./WCSSMAMaS/tms-main.js");
+			WCSSMAM_S.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js");
 			document.head.appendChild(WCSSMAM_S);
+		}
+		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
+		if(Array.from(e.children).map(i => {
+			return i.getAttribute("cnbilinyj-webcat-element");
+		}).indexOf("settings") === -1){
+			let settingsElement = document.createElement("li");
+			settingsElement.innerHTML = `<i class="mdui-list-item-avatar mdui-icon material-icons mdui-color-orange-400 mdui-text-color-white">settings</i>\n	<div class="mdui-list-item-content">\n		<div class="mdui-list-item-title">农药君WebCat工具设置</div>\n		<div class="mdui-list-item-text">农药君的WebCat工具设置</div>\n	</div>`;
+			settingsElement.setAttribute("class", "mdui-list-item mdui-ripple");
+			settingsElement.setAttribute("cnbilinyj-webcat-element", "settings");
+			e.appendChild(settingsElement);
 		}
 		if(getQueryVariable("isDark") === "true"){
 			document.getElementById("left-drawer").classList.remove("mdui-color-white");
