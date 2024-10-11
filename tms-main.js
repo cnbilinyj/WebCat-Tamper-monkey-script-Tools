@@ -24,6 +24,7 @@
 			WCSSMAM_S.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js");
 			document.head.appendChild(WCSSMAM_S);
 		}
+		window.on
 		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
@@ -42,11 +43,13 @@
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-title");
 					e.innerText = "农药君工具设置";
+					return e;
 				})());
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-text");
 					e.innerText = "农药君的WebCat工具设置";
+					return e;
 				})());
 				return e;
 			})());
