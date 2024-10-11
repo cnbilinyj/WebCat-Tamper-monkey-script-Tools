@@ -73,7 +73,6 @@
 					e.innerText = "WebCat共享空间总功能脚本设置";
 					return e;
 				})());
-				e.appendChild(document.createTextNode("作者：农药君（GitHub：cnbilinyj）"));
 				e.appendChild(document.createTextNode("作者：农药君（GitHub："));
 				e.appendChild((() => {
 					let e = document.createElement("a");
