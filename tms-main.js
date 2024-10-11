@@ -78,7 +78,7 @@
 				e.appendChild((() => {
 					let e = document.createElement("a");
 					e.href = "https://github.com/cnbilinyj";
-					e.classList.add(".mdui-text-color-green-900")
+					e.classList.add("mdui-text-color-green-900")
 					e.innerText = "cnbilinyj";
 					return e;
 				})());
