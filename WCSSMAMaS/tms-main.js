@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name		 WebCat共享空间多账户管理和切换	WebCat Shared Space Multi-account Management and Switching
+// @name		WebCat共享空间多账户管理和切换	WebCat Shared Space Multi-account Management and Switching
 // @namespace	cnbilinyj-
 // @version		2024-02-17
 // @description	您可以管理多个WebCat空间帐户，并在这些账户之间互相切换。	You can manage multiple WebCat space accounts and switch accounts between them.	GitHub Gists链接：https://gist.github.com/cnbilinyj/374b7e2832474ba6ca4e3b2d100bbae0	x浏览器用户ID：wjrbilibilinyj@163.com	邮箱：wjrbilibilinyj@163.com	GitHub用户名：cnbilinyj
-// @author		 cnbilinyj
+// @author		cnbilinyj
 // @match		*://space.webcat.top/*
-// @icon		 http://x.webcat.top/img/icon.png
+// @icon		http://x.webcat.top/img/icon.png
 // @grant		none
 // ==/UserScript==
 

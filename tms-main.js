@@ -14,17 +14,16 @@
 	'use strict';
 	let use_settings = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-settings")) || {};
 	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
-		if (use_settings.WCSSPDLF_D){
-			let WCSSPDLF_D = document.createElement("script");
-			WCSSPDLF_D.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js");
-			document.head.appendChild(WCSSPDLF_D);
-		}
 		if (use_settings.WCSSMAM_S) {
 			let WCSSMAM_S = document.createElement("script");
 			WCSSMAM_S.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js");
 			document.head.appendChild(WCSSMAM_S);
 		}
-		window.on
+		if (use_settings.WCSSPDLF_D){
+			let WCSSPDLF_D = document.createElement("script");
+			WCSSPDLF_D.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js");
+			document.head.appendChild(WCSSPDLF_D);
+		}
 		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
@@ -68,22 +67,47 @@
 				let e = document.createElement("div");
 				e.classList.add("mdui-dialog-content");
 				e.appendChild((() => {
-					let e = document.createElement("div");
-					e.classList.add("mdui-dialog-title");
-					e.innerText = "WebCat共享空间总功能脚本设置";
+					let e = document.createElement("p");
+					e.appendChild((() => {
+						let e = document.createElement("div");
+						e.classList.add("mdui-dialog-title");
+						e.innerText = "WebCat共享空间总功能脚本设置";
+						return e;
+					})());
+					e.appendChild(document.createTextNode("作者：农药君（GitHub："));
+					e.appendChild((() => {
+						let e = document.createElement("a");
+						e.href = "https://github.com/cnbilinyj";
+						e.classList.add("mdui-text-color-green-400");
+						e.target = "_blank";
+						e.innerText = "cnbilinyj";
+						return e;
+					})());
+					e.appendChild(document.createTextNode("）"));
 					return e;
 				})());
-				e.appendChild(document.createTextNode("作者：农药君（GitHub："));
 				e.appendChild((() => {
-					let e = document.createElement("a");
-					e.href = "https://github.com/cnbilinyj";
-					e.classList.add("mdui-text-color-green-400");
-					e.target = "_blank";
-					e.innerText = "cnbilinyj";
+					let e = document.createElement("div");
+					e.appendChild((() => {
+						let e = document.createElement("div");
+						e.appendChild((() => {
+							let e = document.createElement("lable");
+							e.innerText = "多账户管理与切换功能";
+							return e;
+						})());
+						e.appendChild((() => {
+							let e = document.createElement("input");
+							e.type = "checkbox";
+							e.checked = use_settings.WCSSMAM_S;
+							e.addEventListener("change", event => {
+								use_settings.WCSSMAM_S = event.target.checked;
+							});
+							return e;
+						})());
+						return e;
+					})());
 					return e;
 				})());
-				e.appendChild(document.createTextNode("）"));
-				return e;
 			})());
 			document.body.appendChild(settingsDialogElement);
 		}
