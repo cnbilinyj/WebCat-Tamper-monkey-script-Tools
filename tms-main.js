@@ -91,17 +91,39 @@
 					e.appendChild((() => {
 						let e = document.createElement("div");
 						e.appendChild((() => {
-							let e = document.createElement("input");
-							e.type = "checkbox";
-							e.checked = use_settings.WCSSMAM_S;
-							e.addEventListener("change", event => {
-								use_settings.WCSSMAM_S = event.target.checked;
-							});
+							let e = document.createElement("div");
+							e.appendChild((() => {
+								let e = document.createElement("input");
+								e.type = "checkbox";
+								e.checked = use_settings.WCSSMAM_S;
+								e.addEventListener("change", event => {
+									use_settings.WCSSMAM_S = event.target.checked;
+								});
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								e.innerText = "多账户管理与切换功能";
+								return e;
+							})());
 							return e;
 						})());
 						e.appendChild((() => {
-							let e = document.createElement("lable");
-							e.innerText = "多账户管理与切换功能";
+							let e = document.createElement("div");
+							e.appendChild((() => {
+								let e = document.createElement("input");
+								e.type = "checkbox";
+								e.checked = use_settings.WCSSPDLF_D;
+								e.addEventListener("change", event => {
+									use_settings.WCSSPDLF_D = event.target.checked;
+								});
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								e.innerText = "获取已公开直链免费下载工具";
+								return e;
+							})());
 							return e;
 						})());
 						return e;
