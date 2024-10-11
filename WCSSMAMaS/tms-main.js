@@ -17,8 +17,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		e.appendChild((() => {
 			let item = document.createElement("li");
 			item.innerHTML = `	<i class="mdui-list-item-avatar mdui-icon material-icons mdui-color-orange-400 mdui-text-color-white">account_circle</i>\n	<div class="mdui-list-item-content">\n		<div class="mdui-list-item-title">切换账号</div>\n		<div class="mdui-list-item-text">切换账号，刷新生效</div>\n	</div>`;
-			item.classList.add("mdui-list-item");
-			item.classList.add("mdui-ripple");
+			item.classList.add("mdui-list-item", "mdui-ripple");
 			item.setAttribute("cnbilinyj-webcat-element", "account");
 			item.addEventListener("click", event => {
 				let authInfos = JSON.parse(localStorage.getItem("authInfos") || "{}");

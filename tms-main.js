@@ -29,10 +29,50 @@
 			return i.getAttribute("cnbilinyj-webcat-element");
 		}).indexOf("settings") === -1){
 			let settingsElement = document.createElement("li");
-			settingsElement.innerHTML = `<i class="mdui-list-item-avatar mdui-icon material-icons mdui-color-orange-400 mdui-text-color-white">settings</i>\n	<div class="mdui-list-item-content">\n		<div class="mdui-list-item-title">农药君WebCat工具设置</div>\n		<div class="mdui-list-item-text">农药君的WebCat工具设置</div>\n	</div>`;
-			settingsElement.setAttribute("class", "mdui-list-item mdui-ripple");
+			settingsElement.appendChild((() => {
+				let e = document.createElement("i");
+				e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-deep-purple-400", "mdui-text-color-white");
+				e.innerText = "settings";
+				return e;
+			})());
+			settingsElement.appendChild((() => {
+				let e = document.createElement("div");
+				e.classList.add("mdui-list-item-content");
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-list-item-title");
+					e.innerText = "农药君工具设置";
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-list-item-text");
+					e.innerText = "农药君的WebCat工具设置";
+				})());
+				return e;
+			})());
+			settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 			settingsElement.setAttribute("cnbilinyj-webcat-element", "settings");
+			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\'settings-dialog\']'}");
 			e.appendChild(settingsElement);
+		}
+		if(Array.from(document.body.children).map(i => {
+			return i.getAttribute("cnbilinyj-webcat-element");
+		}).indexOf("settings-dialog") === -1){
+			let settingsDialogElement = document.createElement("div");
+			settingsDialogElement.setAttribute("cnbilinyj-webcat-element", "settings-dialog");
+			settingsDialogElement.classList.add("mdui-dialog");
+			settingsDialogElement.appendChild((() => {
+				let e = document.createElement("div");
+				e.classList.add("mdui-dialog-content");
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-dialog-title");
+					e.innerText = "WebCat共享空间总功能脚本设置";
+					return e;
+				})())
+				return e;
+			})());
+			document.body.appendChild(settingsDialogElement);
 		}
 		if(getQueryVariable("isDark") === "true"){
 			document.getElementById("left-drawer").classList.remove("mdui-color-white");
