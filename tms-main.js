@@ -91,11 +91,6 @@
 					e.appendChild((() => {
 						let e = document.createElement("div");
 						e.appendChild((() => {
-							let e = document.createElement("lable");
-							e.innerText = "多账户管理与切换功能";
-							return e;
-						})());
-						e.appendChild((() => {
 							let e = document.createElement("input");
 							e.type = "checkbox";
 							e.checked = use_settings.WCSSMAM_S;
@@ -104,8 +99,18 @@
 							});
 							return e;
 						})());
+						e.appendChild((() => {
+							let e = document.createElement("lable");
+							e.innerText = "多账户管理与切换功能";
+							return e;
+						})());
 						return e;
 					})());
+					e.appendChild((() => {
+						let e = document.createElement("button");
+						e.classList.add("mdui-btn", "mdui-color-theme-accent", "mdui-ripple");
+						return e;
+					})())
 					return e;
 				})());
 				return e;
