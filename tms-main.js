@@ -17,12 +17,12 @@
 		if (use_settings.WCSSMAM_S) {
 			let WCSSMAM_S = document.createElement("script");
 			WCSSMAM_S.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js");
-			document.head.appendChild(WCSSMAM_S);
+			document.documentElement.appendChild(WCSSMAM_S);
 		}
 		if (use_settings.WCSSPDLF_D){
 			let WCSSPDLF_D = document.createElement("script");
 			WCSSPDLF_D.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js");
-			document.head.appendChild(WCSSPDLF_D);
+			document.documentElement.appendChild(WCSSPDLF_D);
 		}
 		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
