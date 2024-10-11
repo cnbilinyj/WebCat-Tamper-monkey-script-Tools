@@ -55,7 +55,7 @@
 			})());
 			settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 			settingsElement.setAttribute("cnbilinyj-webcat-element", "settings");
-			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\'settings-dialog\']'}");
+			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
 			e.appendChild(settingsElement);
 		}
 		if(Array.from(document.body.children).map(i => {
