@@ -109,6 +109,15 @@
 					e.appendChild((() => {
 						let e = document.createElement("button");
 						e.classList.add("mdui-btn", "mdui-color-theme-accent", "mdui-ripple");
+						e.innerText = "保存";
+						e.setAttribute("mdui-dialog-confirm", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
+						e.setAttribute("mdui-dialog-close", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
+						e.addEventListener("click", () => {
+							localStorage.setItem("cnbilinyj-WebCat-settings", JSON.stringify(use_settings));
+							mdui.alert("需要刷新才能应用设置", "需要刷新", function () {
+								location.reload();
+							});
+						});
 						return e;
 					})())
 					return e;
