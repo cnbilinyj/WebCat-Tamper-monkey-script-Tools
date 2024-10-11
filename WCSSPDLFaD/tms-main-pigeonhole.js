@@ -30,11 +30,9 @@
 	let id = window.location.search.split("?")[1].split("&")[window.location.search.split("?")[1].split("&").map(i => {
 		return i.split("=")[0].toLowerCase()
 	}).indexOf("id")].split("=")[1].padStart(5, "0");
-	// let id = "41362";
-	let path = "";
 	let urls = [
 		"https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/data/",
-		"https://jsd.cdn.zzko.cn/gh/cnbilinyj/WebCat-Tamper-monkey-script-Tools@main/"
+		"https://jsd.cdn.zzko.cn/gh/cnbilinyj/WebCat-Tamper-monkey-script-Tools@main/WCSSPDLFaD/data/"
 	]
 	let send_requests = function send_requests (url_n){
 		let url_ = urls[url_n];

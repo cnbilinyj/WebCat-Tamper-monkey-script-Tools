@@ -29,10 +29,9 @@
 		return i.split("=")[0].toLowerCase()
 	}).indexOf("id")].split("=")[1].padStart(5, "0");
 	// let id = "41362";
-	let path = "";
 	let urls = [
-		"https://cnbilinyj.github.io/WebCat_Shared_Space_Publicizes_Project_Direct_Chain/",
-		"https://jsd.cdn.zzko.cn/gh/cnbilinyj/WebCat_Shared_Space_Publicizes_Project_Direct_Chain@main/"
+		"https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/data/",
+		"https://jsd.cdn.zzko.cn/gh/cnbilinyj/WebCat-Tamper-monkey-script-Tools@main/WCSSPDLFaD/data/"
 	];
 	let no_get = function no_get () {
 		element.classList.remove("mdui-color-blue-400");
