@@ -80,7 +80,7 @@
 					e.href = "https://github.com/cnbilinyj";
 					e.innerText = "cnbilinyj";
 					return e;
-				}));
+				})());
 				e.appendChild(document.createTextNode("）"));
 				return e;
 			})());
