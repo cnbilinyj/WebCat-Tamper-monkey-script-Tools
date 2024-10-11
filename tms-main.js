@@ -108,6 +108,7 @@
 					})());
 					return e;
 				})());
+				return e;
 			})());
 			document.body.appendChild(settingsDialogElement);
 		}
