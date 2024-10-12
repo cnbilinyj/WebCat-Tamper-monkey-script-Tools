@@ -253,7 +253,7 @@
 										es[0] = e;
 										e.setAttribute("type", "checkbox");
 										return e;
-									}));
+									})());
 									return e;
 								})());
 								e.appendChild((() => {
