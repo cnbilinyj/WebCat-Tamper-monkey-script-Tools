@@ -186,7 +186,7 @@
 			settingsElement.appendChild((() => {
 				let e = document.createElement("i");
 				e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-deep-purple-400", "mdui-text-color-white");
-				e.innerText = "";
+				e.innerText = "file_download";
 				return e;
 			})());
 			settingsElement.appendChild((() => {
@@ -201,7 +201,7 @@
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-text");
-					e.innerText = "登录、清理缓存，样样都能干";
+					e.innerText = "登录、清理缓存";
 					return e;
 				})());
 				return e;
