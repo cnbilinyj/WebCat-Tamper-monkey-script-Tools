@@ -210,4 +210,5 @@
 			e.appendChild(settingsElement);
 		}
 	}
+	mdui.mutation();
 })();

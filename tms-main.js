@@ -198,6 +198,7 @@
 				return e;
 			})());
 			document.body.appendChild(settingsDialogElement);
+			mdui.mutation();
 		}
 		if(getQueryVariable("isDark") === "true"){
 			document.getElementById("left-drawer").classList.remove("mdui-color-white");

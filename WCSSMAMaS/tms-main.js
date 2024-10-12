@@ -261,4 +261,5 @@ ${e}`);
 			return item;
 		})());
 	}
+	mdui.mutation();
 }
