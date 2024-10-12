@@ -341,7 +341,6 @@
 			let token = JSON.parse(event.target.responseText).access_token;
 			let get_user_info_xhr = new XMLHttpRequest();
 			get_user_info_xhr.open("GET", "https://api.github.com/user", true);
-			get_user_info_xhr.setRequestHeader("Accept", "application/json");
 			get_user_info_xhr.setRequestHeader("Authorization", `Bearer ${token}`);
 			get_user_info_xhr.addEventListener("load", event => {
 				JSON.parse(event.target.responseText);
@@ -351,7 +350,8 @@
 		get_token_xhr.send(JSON.stringify({
 			"client_id": client_id,
 			"code": code,
-			"client_secret": client_secret
+			"client_secret": client_secret,
+			"redirect_uri": "http://space.webcat.top/GitHubOAuth"
 		}));
 	}
 })();
