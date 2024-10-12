@@ -178,6 +178,7 @@
 		}
 		get_5(0);
 	} else if ((["/", "/index.html"]).indexOf(window.location.pathname) !== -1) {
+		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
 		}).indexOf("WCSSPDLFaD") === -1){
