@@ -174,6 +174,11 @@
 						})());
 						return e;
 					})());
+					return e;
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-dialog-actions");
 					e.appendChild((() => {
 						let e = document.createElement("button");
 						e.classList.add("mdui-btn", "mdui-color-theme-accent", "mdui-ripple");
