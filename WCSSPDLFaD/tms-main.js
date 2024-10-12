@@ -273,9 +273,11 @@
 									let e = document.createElement("button");
 									e.classList.add("mdui-text-color-theme-icon-disabled", "mdui-ripple");
 									e.style.userSelect = "none";
-									e.style.backgroundColor = "#0d1117!important";
+									e.style.backgroundColor = "#0d1117";
 									e.style.alignItems = "center";
 									e.style.color = "#e6edf3";
+									let sheet = e.sheet;
+									sheet.insertRule("[cnbilinyj-webcat-element=\"cnbilinyj-WebCat-WCSSPDLFaD--settings-dialog\"] button[class=\"mdui-text-color-theme-icon-disabled mdui-ripple\"] { color: #e6edf3 !important; }", sheet.cssRules.length);
 									e.style.border = "none";
 									e.style.padding = "8px";
 									e.style.display = "flex";
