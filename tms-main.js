@@ -30,7 +30,7 @@
 			settingsElement.appendChild((() => {
 				let e = document.createElement("i");
 				e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-deep-purple-400", "mdui-text-color-white");
-				e.innerText = "settings";
+				e.appendChild(document.createTextNode("settings"));
 				return e;
 			})());
 			settingsElement.appendChild((() => {
@@ -39,13 +39,13 @@
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-title");
-					e.innerText = "工具设置";
+					e.appendChild(document.createTextNode("工具设置"));
 					return e;
 				})());
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-text");
-					e.innerText = "农药君WebCat工具设置";
+					e.appendChild(document.createTextNode("农药君WebCat工具设置"));
 					return e;
 				})());
 				return e;
@@ -69,7 +69,7 @@
 					e.appendChild((() => {
 						let e = document.createElement("div");
 						e.classList.add("mdui-dialog-title");
-						e.innerText = "WebCat共享空间总功能脚本设置";
+						e.appendChild(document.createTextNode("WebCat共享空间总功能脚本设置"));
 						return e;
 					})());
 					e.appendChild(document.createTextNode("作者：农药君（GitHub："));
@@ -78,7 +78,7 @@
 						e.href = "https://github.com/cnbilinyj";
 						e.classList.add("mdui-text-color-green-400");
 						e.target = "_blank";
-						e.innerText = "cnbilinyj";
+						e.appendChild(document.createTextNode("cnbilinyj"));
 						return e;
 					})());
 					e.appendChild(document.createTextNode("）"));
@@ -92,13 +92,13 @@
 							let e = document.createElement("div");
 							e.appendChild((() => {
 								let e = document.createElement("h4");
-								e.innerText = "多账户管理与切换功能";
+								e.appendChild(document.createTextNode("多账户管理与切换功能"));
 								return e;
 							})());
 							e.appendChild((() => {
 								let e = document.createElement("lable");
 								e.setAttribute("for", "cnbilinyj-WebCat-setting-WCSSMAM_S")
-								e.innerText = "启用";
+								e.appendChild(document.createTextNode("启用"));
 								return e;
 							})());
 							e.appendChild(document.createElement("br"));
@@ -125,7 +125,7 @@
 							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("button");
-								e.innerText = "清空数据";
+								e.appendChild(document.createTextNode("清空数据"));
 								e.classList.add("mdui-btn");
 								e.addEventListener("click", () => {
 									(["cnbilinyj-WebCat-WCSSMAMaS--authInfos"]).forEach(i => {
@@ -141,13 +141,13 @@
 							let e = document.createElement("div");
 							e.appendChild((() => {
 								let e = document.createElement("h4");
-								e.innerText = "免费下载工具";
+								e.appendChild(document.createTextNode("免费下载工具"));
 								return e;
 							})());
 							e.appendChild((() => {
 								let e = document.createElement("lable");
 								e.setAttribute("for", "cnbilinyj-WebCat-setting-WCSSMAM_S")
-								e.innerText = "启用";
+								e.appendChild(document.createTextNode("启用"));
 								return e;
 							})());
 							e.appendChild(document.createElement("br"));
@@ -174,7 +174,7 @@
 							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("button");
-								e.innerText = "清空缓存";
+								e.appendChild(document.createTextNode("清空缓存"));
 								e.classList.add("mdui-btn");
 								e.addEventListener("click", () => {
 									(["cnbilinyj-WebCat-WCSSPDLF&D--cache"]).forEach(i => {
@@ -195,7 +195,7 @@
 					e.appendChild((() => {
 						let e = document.createElement("button");
 						e.classList.add("mdui-btn", "mdui-color-theme-accent", "mdui-ripple");
-						e.innerText = "保存";
+						e.appendChild(document.createTextNode("保存"));
 						e.setAttribute("mdui-dialog-confirm", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
 						e.setAttribute("mdui-dialog-close", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
 						e.addEventListener("click", () => {

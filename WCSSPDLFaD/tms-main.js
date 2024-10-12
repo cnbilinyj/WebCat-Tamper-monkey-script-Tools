@@ -10,7 +10,10 @@
 // ==/UserScript==
 (function() {
 	'use strict';
-	let localStorage_key = "cnbilinyj-WebCat-WCSSPDLF&D--cache";
+	let localStorage_keys = {
+		"cache": "cnbilinyj-WebCat-WCSSPDLF&D--cache",
+		"ghdata": "cnbilinyj-WebCat-WCSSPDLF&D--ghdata"
+	};
 	if (window.location.pathname === "/page/detail.html") {
 		let element_td = document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").parentNode;
 		document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").remove();
@@ -31,9 +34,9 @@
 					if (data.success) {
 						var info = data.data;
 						var fileUrl = info.fileUrl;
-						$.ajax({
+						/* $.ajax({
 							url: ""
-						});
+						}); */
 						window.location.href = fileUrl;
 					} else {
 						mdui.alert(data.message);
@@ -63,7 +66,7 @@
 			element.classList.remove("mdui-color-blue-400");
 			element.classList.add("mdui-color-red-500");
 			element.children[0].innerHTML = "file_download";
-			localStorage.setItem(localStorage_key, JSON.stringify(data));
+			localStorage.setItem(localStorage_keys.cache, JSON.stringify(cache));
 		}
 		let get_ok = function get_ok (download_url) {
 			element.classList.remove("mdui-color-blue-400");
@@ -71,16 +74,16 @@
 			element.children[0].innerHTML = "file_download";
 			element.removeEventListener("click", no_free_get_url)
 			element.addEventListener("click", to_free_download)
-			localStorage.setItem(localStorage_key, JSON.stringify(data));
+			localStorage.setItem(localStorage_keys.cache, JSON.stringify(cache));
 		}
-		let data = JSON.parse(localStorage.getItem(localStorage_key)) || [];
+		let cache = JSON.parse(localStorage.getItem(localStorage_keys.cache)) || [];
 		let get_5 = function get_5 (urln) {
 			if (urln >= urls.length) {
 				no_get();
 				return;
 			}
 			let idn = parseInt(id.slice(0, -4));
-			if (data[idn]) {
+			if (cache[idn]) {
 				/*
 				如果本地存在这一等级的记录则直接使用本地的
 				原本可以直接存储是否有当前ID的项目的下载链接
@@ -98,7 +101,7 @@
 				get_5_xhr.addEventListener("load", event => {
 					let net_data = JSON.parse(event.target.responseText);
 					net_data.forEach((v, i) => {
-						data[i] = data[i] || (v?[]:v);
+						cache[i] = cache[i] || (v?[]:v);
 					});
 					if (net_data[idn]) {
 						get_34(urln, false);
@@ -120,7 +123,7 @@
 				no_get();
 				return;
 			}
-			if (get_local && data[idn5][idn34]) {
+			if (get_local && cache[idn5][idn34]) {
 				get_12(urln, true);
 				return;
 			} else {
@@ -130,7 +133,7 @@
 				get_34_xhr.addEventListener("load", event => {
 					let net_data = JSON.parse(event.target.responseText);
 					net_data.forEach((v, i) => {
-						data[idn5][i] = data[idn5][i] || (v?[]:v);
+						cache[idn5][i] = cache[idn5][i] || (v?[]:v);
 					});
 					if (net_data[idn34]) {
 						get_12(urln, false);
@@ -152,8 +155,8 @@
 				no_get();
 				return;
 			}
-			if (get_local && data[idn5][idn34][idn12]) {
-				get_ok(data[idn5][idn34][idn12]);
+			if (get_local && cache[idn5][idn34][idn12]) {
+				get_ok(cache[idn5][idn34][idn12]);
 				return;
 			} else {
 				let url_ = urls[urln];
@@ -162,7 +165,7 @@
 				get_12_xhr.addEventListener("load", event => {
 					let net_data = JSON.parse(event.target.responseText);
 					net_data.forEach((v, i) => {
-						data[idn5][idn34][i] = v;
+						cache[idn5][idn34][i] = v;
 					});
 					if (net_data[idn12]) {
 						get_ok(net_data[idn12]);
@@ -178,6 +181,7 @@
 		}
 		get_5(0);
 	} else if ((["/", "/index.html"]).indexOf(window.location.pathname) !== -1) {
+		let ghdata = JSON.parse(localStorage.getItem(localStorage_keys.ghdata) || "{}");
 		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
@@ -186,7 +190,7 @@
 			settingsElement.appendChild((() => {
 				let e = document.createElement("i");
 				e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-deep-purple-400", "mdui-text-color-white");
-				e.innerText = "file_download";
+				e.appendChild(document.createTextNode("file_download"));
 				return e;
 			})());
 			settingsElement.appendChild((() => {
@@ -195,21 +199,89 @@
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-title");
-					e.innerText = "免费下载工具设置";
+					e.appendChild(document.createTextNode("免费下载工具设置"));
 					return e;
 				})());
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-text");
-					e.innerText = "登录、清理缓存";
+					e.appendChild(document.createTextNode("登录、清理缓存"));
 					return e;
 				})());
 				return e;
 			})());
 			settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 			settingsElement.setAttribute("cnbilinyj-webcat-element", "WCSSPDLFaD");
-			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
+			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'cnbilinyj-WebCat-WCSSPDLFaD--settings-dialog\\']'}");
 			e.appendChild(settingsElement);
+		}
+		if(Array.from(document.body.children).map(i => {
+			return i.getAttribute("cnbilinyj-WebCat-WCSSPDLFaD--settings-dialog");
+		}).indexOf("WCSSPDLFaD") === -1){
+			document.body.appendChild((() => {
+				let e = document.createElement("div");
+				e.classList.add("mdui-dialog");
+				e.setAttribute("cnbilinyj-webcat-element", "cnbilinyj-WebCat-WCSSPDLFaD--settings-dialog");
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-dialog-title");
+					e.appendChild(document.createTextNode("设置"));
+					return e;
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-dialog-content");
+					e.appendChild((() => {
+						let e = document.createElement("div");
+						e.appendChild((() => {
+							let e = document.createElement("div");
+							e.appendChild((() => {
+								let e = document.createElement("h4");
+								e.appendChild(document.createTextNode("链接共享"));
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("div");
+								let es = [];
+								e.appendChild(document.createTextNode("公开获取到的链接"));
+								e.appendChild(document.createElement("br"));
+								e.appendChild((() => {
+									let e = document.createElement("label");
+									e.classList.add("mdui-switch");
+									e.appendChild((() => {
+										let e = document.createElement("input");
+										es[0] = e;
+										e.setAttribute("type", "checkbox");
+										return e;
+									}));
+									return e;
+								})());
+								e.appendChild((() => {
+									let e = document.createElement("span");
+									es[1] = e;
+									e.style.fontSize = "13px";
+									e.classList.add("mdui-text-color-theme-icon-disabled");
+									return e;
+								})());
+								if (!ghdata.ght) {
+									es[0].setAttribute("disabled", "");
+									es[1].appendChild(document.createTextNode("需要登录GitHub才能共享链接"));
+								}
+								return e;
+							})());
+							return e;
+						})());
+						return e;
+					})());
+					e.appendChild((() => {
+						let e = document.createElement("div");
+						e.classList.add("mdui-dialog-actions");
+						return e;
+					})());
+					return e;
+				})());
+				return e;
+			})());
 		}
 	}
 	mdui.mutation();
