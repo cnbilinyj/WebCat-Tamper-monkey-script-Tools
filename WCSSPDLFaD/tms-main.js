@@ -333,7 +333,7 @@
 		let code = searchs[search_keys.indexOf("code")][1];
 		let data = {};
 		let client_id = "Iv23liEF9J3QYAIhKy5W";
-		let client_secret = "45d03041a8c8668d3dc8368818997a66bd77acfd";
+		let client_secret = "b7b1b879b3f99fa20cea3c9f295a80011fff0517";
 		let get_token_xhr = new XMLHttpRequest();
 		get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=${client_id}&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth&client_secret=${client_secret}&code=${code}`, true);
 		get_token_xhr.setRequestHeader("Accept", "application/json");
