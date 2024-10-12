@@ -10,6 +10,7 @@
 // ==/UserScript==
 
 if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
+	let localStorage_key = "cnbilinyj-WebCat-WCSSMAMaS--authInfos";
 	let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 	if(Array.from(e.children).map(i => {
 		return i.getAttribute("cnbilinyj-webcat-element");
@@ -20,7 +21,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 			item.classList.add("mdui-list-item", "mdui-ripple");
 			item.setAttribute("cnbilinyj-webcat-element", "account");
 			item.addEventListener("click", event => {
-				let authInfos = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-WCSSMAMaS--authInfos") || "{}");
+				let authInfos = JSON.parse(localStorage.getItem(localStorage_key) || "{}");
 				let dialog = mdui.dialog({
 					"title": "切换账号",
 					"content": `<p>选择账号：</p>
@@ -61,7 +62,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 										return option;
 									})());
 									dialog.$element[0].children[1].children[1].example.handleUpdate();
-									localStorage.setItem("authInfos", JSON.stringify(authInfos));
+									localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
 								}else{
 									dialog.close();
 									mdui.alert("请选择正确的账号！", "选择错误", () => {
@@ -83,11 +84,11 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 												mdui.confirm("已有重复的账号标签，是否覆盖？", "账号标签冲突", (confirm_dialog) => {
 													dialog.destroy();
 													authInfos[text] = localStorage.getItem("authInfo");
-													localStorage.setItem("authInfos", JSON.stringify(authInfos));
+													localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
 												});
 											}else{
 												authInfos[text] = localStorage.getItem("authInfo");
-												localStorage.setItem("authInfos", JSON.stringify(authInfos));
+												localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
 											}
 										}
 									});
@@ -107,7 +108,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 											mdui.alert("账号内容不能为空", null, dialog.open);
 										}else{
 											authInfos[auth_data_index] = account_data;
-											localStorage.setItem("authInfos", JSON.stringify(authInfos));
+											localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
 										}
 									});
 								};
@@ -180,7 +181,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 										}
 										document.addEventListener('copy', copy);
 										document.execCommand("Copy");
-									})(localStorage.getItem("authInfos"));
+									})(localStorage.getItem(localStorage_key));
 									dialog.open();
 								}, function (text, auth_data_dialog) {
 									auth_data_dialog.destroy();
@@ -194,7 +195,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 											result += "&#" + function(){if(to16){return "x";}else{return "";}}() + input.charCodeAt(i).toString(function(){if(to16){return 16;}else{return 10;}}()) + ";";
 										}
 										return result;
-									})(localStorage.getItem("authInfos"))
+									})(localStorage.getItem(localStorage_key))
 								});
 								dialog.open();
 							},
@@ -215,7 +216,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 													alert("数据格式错误\n不是JSON");
 												}else{
 													authInfos = account_data;
-													localStorage.setItem("authInfos", authInfos);
+													localStorage.setItem(localStorage_key, authInfos);
 												}
 											}catch(e){
 												alert(`数据格式错误

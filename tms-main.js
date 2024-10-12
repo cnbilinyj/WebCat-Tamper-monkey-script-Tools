@@ -128,7 +128,9 @@
 								e.innerText = "清空数据";
 								e.classList.add("mdui-btn");
 								e.addEventListener("click", () => {
-									localStorage.clear("cnbilinyj-WebCat-WCSSMAMaS--authInfos");
+									(["cnbilinyj-WebCat-WCSSMAMaS--authInfos"]).forEach(i => {
+										localStorage.clear(i);
+									});
 								});
 								return e;
 							})());
@@ -170,6 +172,17 @@
 							})());
 							e.appendChild(document.createElement("br"));
 							e.appendChild(document.createElement("br"));
+							e.appendChild((() => {
+								let e = document.createElement("button");
+								e.innerText = "清空缓存";
+								e.classList.add("mdui-btn");
+								e.addEventListener("click", () => {
+									(["cnbilinyj-WebCat-WCSSPDLF&D--cache"]).forEach(i => {
+										localStorage.clear(i);
+									});
+								});
+								return e;
+							})());
 							return e;
 						})());
 						return e;

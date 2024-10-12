@@ -10,6 +10,7 @@
 // ==/UserScript==
 (function() {
 	'use strict';
+	let localStorage_key = "cnbilinyj-WebCat-WCSSPDLF&D--cache";
 	if (window.location.pathname === "/page/detail.html") {
 		let element_td = document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").parentNode;
 		document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").remove();
@@ -62,7 +63,7 @@
 			element.classList.remove("mdui-color-blue-400");
 			element.classList.add("mdui-color-red-500");
 			element.children[0].innerHTML = "file_download";
-			localStorage.setItem("cnbilinyj-WebCat-WCSSPDLF&D", JSON.stringify(data));
+			localStorage.setItem(localStorage_key, JSON.stringify(data));
 		}
 		let get_ok = function get_ok (download_url) {
 			element.classList.remove("mdui-color-blue-400");
@@ -70,9 +71,9 @@
 			element.children[0].innerHTML = "file_download";
 			element.removeEventListener("click", no_free_get_url)
 			element.addEventListener("click", to_free_download)
-			localStorage.setItem("cnbilinyj-WebCat-WCSSPDLF&D", JSON.stringify(data));
+			localStorage.setItem(localStorage_key, JSON.stringify(data));
 		}
-		let data = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-WCSSPDLF&D--cache")) || [];
+		let data = JSON.parse(localStorage.getItem(localStorage_key)) || [];
 		let get_5 = function get_5 (urln) {
 			if (urln >= urls.length) {
 				no_get();
