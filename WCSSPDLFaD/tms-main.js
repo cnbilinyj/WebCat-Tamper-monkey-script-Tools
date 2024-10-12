@@ -271,7 +271,7 @@
 								})());
 								e.appendChild((() => {
 									let e = document.createElement("button");
-									e.classList.add("mdui-text-color-theme-icon-disabled");
+									e.classList.add("mdui-text-color-theme-icon-disabled", "mdui-ripple");
 									e.style.userSelect = "none";
 									e.style.backgroundColor = "#0d1117";
 									e.style.color = "#e6edf3";
