@@ -300,6 +300,8 @@
 										let e = document.createElement("span");
 										e.style.paddingLeft = "8px";
 										e.style.fontWeight = "500";
+										e.style.alignItems = "center";
+										e.appendChild(document.createTextNode("使用GitHub登录"));
 										return e;
 									})());
 									return e;
