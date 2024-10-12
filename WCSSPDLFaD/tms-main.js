@@ -273,11 +273,13 @@
 									let e = document.createElement("button");
 									e.classList.add("mdui-text-color-theme-icon-disabled", "mdui-ripple");
 									e.style.userSelect = "none";
-									e.style.backgroundColor = "#0d1117";
+									e.style.backgroundColor = "#0d1117!important";
+									e.style.alignItems = "center";
 									e.style.color = "#e6edf3";
 									e.style.border = "none";
 									e.style.padding = "8px";
 									e.style.display = "flex";
+									e.style.borderRadius = "24px";
 									e.appendChild((() => {
 										let e = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 										e.setAttribute("aria-hidden", "true");
