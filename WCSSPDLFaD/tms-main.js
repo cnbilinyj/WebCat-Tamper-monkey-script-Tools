@@ -332,8 +332,10 @@
 		let search_keys = searchs.map(i => i[0]);
 		let code = searchs[search_keys.indexOf("code")][1];
 		let data = {};
+		let client_id = "Iv23liEF9J3QYAIhKy5W";
+		let client_secret = "45d03041a8c8668d3dc8368818997a66bd77acfd";
 		let get_token_xhr = new XMLHttpRequest();
-		get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=Iv23liEF9J3QYAIhKy5W&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth&client_secret=45d03041a8c8668d3dc8368818997a66bd77acfd&code=${code}`, true);
+		get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=${client_id}&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth&client_secret=${client_secret}&code=${code}`, true);
 		get_token_xhr.setRequestHeader("Accept", "application/json");
 		get_token_xhr.addEventListener("load", event => {
 			let token = JSON.parse(event.target.responseText).access_token;
@@ -347,10 +349,9 @@
 			get_user_info_xhr.send();
 		});
 		get_token_xhr.send(JSON.stringify({
-			"client_secret": "e6f399977f0446e2f9d9a6b42519875d0bb5ea2e",
-			"client_id": "Ov23liKXBdgAueSUVq12",
+			"client_id": client_id,
 			"code": code,
-			"client_secret": "45d03041a8c8668d3dc8368818997a66bd77acfd"
+			"client_secret": client_secret
 		}));
 	}
 })();
