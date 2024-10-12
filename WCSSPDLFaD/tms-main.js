@@ -180,6 +180,7 @@
 			}
 		}
 		get_5(0);
+		mdui.mutation();
 	} else if ((["/", "/index.html"]).indexOf(window.location.pathname) !== -1) {
 		let ghdata = JSON.parse(localStorage.getItem(localStorage_keys.ghdata) || "{}");
 		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
@@ -325,6 +326,7 @@
 				return e;
 			})());
 		}
+		mdui.mutation();
 	} else if (window.location.pathname === "/GitHubOAuth") {
 		let searchs = window.location.search.slice(1).split("&").map(i => i.split("="));
 		let search_keys = searchs.map(i => i[0]);
@@ -350,5 +352,4 @@
 			"code": code
 		}));
 	}
-	mdui.mutation();
 })();
