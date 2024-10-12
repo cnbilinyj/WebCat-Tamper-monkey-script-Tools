@@ -272,16 +272,7 @@
 								e.appendChild((() => {
 									let e = document.createElement("button");
 									e.classList.add("mdui-text-color-theme-icon-disabled", "mdui-ripple");
-									e.style.userSelect = "none";
-									e.style.backgroundColor = "#0d1117";
-									e.style.alignItems = "center";
-									e.style.color = "#e6edf3";
-									let sheet = e.sheet;
-									sheet.insertRule("[cnbilinyj-webcat-element=\"cnbilinyj-WebCat-WCSSPDLFaD--settings-dialog\"] button[class=\"mdui-text-color-theme-icon-disabled mdui-ripple\"] { color: #e6edf3 !important; }", sheet.cssRules.length);
-									e.style.border = "none";
-									e.style.padding = "8px";
-									e.style.display = "flex";
-									e.style.borderRadius = "24px";
+									e.setAttribute("style", "user-select: none ; background-color: #0d1117 ; align-items: center ; color: #e6edf3 ; border: none ; padding: 8px ; display: flex ; borderRadius: 24px ; color: #e6edf3 !important;");
 									e.appendChild((() => {
 										let e = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 										e.setAttribute("aria-hidden", "true");
