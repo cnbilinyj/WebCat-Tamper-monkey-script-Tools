@@ -301,9 +301,13 @@
 										e.style.paddingLeft = "8px";
 										e.style.fontWeight = "500";
 										e.style.alignItems = "center";
+										e.style.borderRadius = "24px";
 										e.appendChild(document.createTextNode("使用GitHub登录"));
 										return e;
 									})());
+									e.addEventListener("click", () => {
+										window.location.href = "https://github.com/login/oauth/authorize?client_id=Ov23liKXBdgAueSUVq12&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth&prompt=select_account";
+									});
 									return e;
 								})());
 								if (!ghdata.ght) {
