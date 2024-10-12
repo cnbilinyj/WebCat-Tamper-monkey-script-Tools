@@ -8,8 +8,6 @@
 // @icon		http://x.webcat.top/img/icon.png
 // @grant		none
 // ==/UserScript==
-
-
 (function() {
 	'use strict';
 	let use_settings = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-settings")) || {};
@@ -103,13 +101,13 @@
 								e.innerText = "启用";
 								return e;
 							})());
+							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
 								e.appendChild((() => {
 									let e = document.createElement("input");
 									e.type = "checkbox";
 									e.checked = use_settings.WCSSMAM_S;
-									e.name = "cnbilinyj-WebCat-setting-WCSSMAM_S";
 									e.addEventListener("change", event => {
 										use_settings.WCSSMAM_S = event.target.checked;
 									});
@@ -123,13 +121,15 @@
 								e.classList.add("mdui-switch");
 								return e;
 							})());
+							e.appendChild(document.createElement("br"));
+							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("button");
 								e.innerText = "清空数据";
 								e.classList.add("mdui-btn");
 								e.addEventListener("click", () => {
-									localStorage.clear("authInfos");
-								})
+									localStorage.clear("cnbilinyj-WebCat-WCSSMAMaS--authInfos");
+								});
 								return e;
 							})());
 							return e;
@@ -148,6 +148,7 @@
 								e.innerText = "启用";
 								return e;
 							})());
+							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
 								e.appendChild((() => {
@@ -167,6 +168,8 @@
 								e.classList.add("mdui-switch");
 								return e;
 							})());
+							e.appendChild(document.createElement("br"));
+							e.appendChild(document.createElement("br"));
 							return e;
 						})());
 						return e;

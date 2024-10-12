@@ -20,7 +20,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 			item.classList.add("mdui-list-item", "mdui-ripple");
 			item.setAttribute("cnbilinyj-webcat-element", "account");
 			item.addEventListener("click", event => {
-				let authInfos = JSON.parse(localStorage.getItem("authInfos") || "{}");
+				let authInfos = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-WCSSMAMaS--authInfos") || "{}");
 				let dialog = mdui.dialog({
 					"title": "切换账号",
 					"content": `<p>选择账号：</p>
