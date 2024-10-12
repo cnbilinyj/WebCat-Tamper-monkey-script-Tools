@@ -41,13 +41,13 @@
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-title");
-					e.innerText = "农药君工具设置";
+					e.innerText = "工具设置";
 					return e;
 				})());
 				e.appendChild((() => {
 					let e = document.createElement("div");
 					e.classList.add("mdui-list-item-text");
-					e.innerText = "农药君的WebCat工具设置";
+					e.innerText = "农药君WebCat工具设置";
 					return e;
 				})());
 				return e;
@@ -93,35 +93,78 @@
 						e.appendChild((() => {
 							let e = document.createElement("div");
 							e.appendChild((() => {
-								let e = document.createElement("input");
-								e.type = "checkbox";
-								e.checked = use_settings.WCSSMAM_S;
-								e.addEventListener("change", event => {
-									use_settings.WCSSMAM_S = event.target.checked;
-								});
+								let e = document.createElement("h4");
+								e.innerText = "多账户管理与切换功能";
 								return e;
 							})());
 							e.appendChild((() => {
 								let e = document.createElement("lable");
-								e.innerText = "多账户管理与切换功能";
+								e.setAttribute("for", "cnbilinyj-WebCat-setting-WCSSMAM_S")
+								e.innerText = "启用";
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								e.appendChild((() => {
+									let e = document.createElement("input");
+									e.type = "checkbox";
+									e.checked = use_settings.WCSSMAM_S;
+									e.name = "cnbilinyj-WebCat-setting-WCSSMAM_S";
+									e.addEventListener("change", event => {
+										use_settings.WCSSMAM_S = event.target.checked;
+									});
+									return e;
+								})());
+								e.appendChild((() => {
+									let e = document.createElement("i");
+									e.classList.add("mdui-switch-icon")
+									return e;
+								})());
+								e.classList.add("mdui-switch");
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("button");
+								e.innerText = "清空数据";
+								e.classList.add("mdui-btn");
+								e.addEventListener("click", () => {
+									localStorage.clear("authInfos");
+								})
 								return e;
 							})());
 							return e;
 						})());
+						e.appendChild(document.createElement("hr"));
 						e.appendChild((() => {
 							let e = document.createElement("div");
 							e.appendChild((() => {
-								let e = document.createElement("input");
-								e.type = "checkbox";
-								e.checked = use_settings.WCSSPDLF_D;
-								e.addEventListener("change", event => {
-									use_settings.WCSSPDLF_D = event.target.checked;
-								});
+								let e = document.createElement("h4");
+								e.innerText = "免费下载工具";
 								return e;
 							})());
 							e.appendChild((() => {
 								let e = document.createElement("lable");
-								e.innerText = "获取已公开直链免费下载工具";
+								e.setAttribute("for", "cnbilinyj-WebCat-setting-WCSSMAM_S")
+								e.innerText = "启用";
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								e.appendChild((() => {
+									let e = document.createElement("input");
+									e.type = "checkbox";
+									e.checked = use_settings.WCSSPDLF_D;
+									e.addEventListener("change", event => {
+										use_settings.WCSSPDLF_D = event.target.checked;
+									});
+									return e;
+								})());
+								e.appendChild((() => {
+									let e = document.createElement("i");
+									e.classList.add("mdui-switch-icon")
+									return e;
+								})());
+								e.classList.add("mdui-switch");
 								return e;
 							})());
 							return e;
@@ -141,7 +184,7 @@
 							});
 						});
 						return e;
-					})())
+					})());
 					return e;
 				})());
 				return e;
