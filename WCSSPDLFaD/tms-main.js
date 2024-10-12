@@ -272,7 +272,7 @@
 								e.appendChild((() => {
 									let e = document.createElement("button");
 									e.classList.add("mdui-text-color-theme-icon-disabled", "mdui-ripple");
-									e.setAttribute("style", "user-select: none ; background-color: #0d1117 ; align-items: center ; color: #e6edf3 ; border: none ; padding: 8px ; display: flex ; borderRadius: 24px ; color: #e6edf3 !important;");
+									e.setAttribute("style", "user-select: none ; background-color: #0d1117 ; align-items: center ; color: #e6edf3 ; border: none ; padding: 8px ; display: flex ; border-radius: 24px ; color: #e6edf3 !important;");
 									e.appendChild((() => {
 										let e = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 										e.setAttribute("aria-hidden", "true");
