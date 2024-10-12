@@ -254,6 +254,11 @@
 										e.setAttribute("type", "checkbox");
 										return e;
 									})());
+									e.appendChild((() => {
+										let e = document.createElement("i");
+										e.classList.add("mdui-switch-icon");
+										return e;
+									})());
 									return e;
 								})());
 								e.appendChild((() => {
