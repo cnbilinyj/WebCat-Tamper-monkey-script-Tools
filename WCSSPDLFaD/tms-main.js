@@ -325,6 +325,30 @@
 				return e;
 			})());
 		}
+	} else if (window.location.pathname === "/GitHubOAuth") {
+		let searchs = window.location.search.slice(1).split("&").map(i => i.split("="));
+		let search_keys = searchs.map(i => i[0]);
+		let code = searchs[search_keys.indexOf("code")][1];
+		let data = {};
+		let get_token_xhr = new XMLHttpRequest();
+		get_token_xhr.open("POST", "https://github.com/login/oauth/access_token", true);
+		get_token_xhr.setRequestHeader("Accept", "application/json");
+		get_token_xhr.addEventListener("load", event => {
+			let token = JSON.parse(event.target.responseText).access_token;
+			let get_user_info_xhr = new XMLHttpRequest();
+			get_user_info_xhr.open("GET", "https://api.github.com/user", true);
+			get_user_info_xhr.setRequestHeader("Accept", "application/json");
+			get_user_info_xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+			get_user_info_xhr.addEventListener("load", event => {
+				JSON.parse(event.target.responseText);
+			});
+			get_user_info_xhr.send();
+		});
+		get_token_xhr.send(JSON.stringify({
+			"client_secret": "e6f399977f0446e2f9d9a6b42519875d0bb5ea2e",
+			"client_id": "Ov23liKXBdgAueSUVq12",
+			"code": code
+		}));
 	}
 	mdui.mutation();
 })();
