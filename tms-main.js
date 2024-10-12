@@ -15,12 +15,12 @@
 	let use_settings = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-settings")) || {};
 	if (use_settings.WCSSMAM_S && (["/", "/index.html"]).indexOf(window.location.pathname) != -1) {
 		let WCSSMAM_S = document.createElement("script");
-		WCSSMAM_S.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js");
+		WCSSMAM_S.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js?timestamp=${new Date().valueOf()}`);
 		document.documentElement.appendChild(WCSSMAM_S);
 	}
 	if (use_settings.WCSSPDLF_D && (["/", "/index.html", "/page/detail.html"]).indexOf(window.location.pathname) != -1){
 		let WCSSPDLF_D = document.createElement("script");
-		WCSSPDLF_D.setAttribute("src", "https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js");
+		WCSSPDLF_D.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js?timestamp=${new Date().valueOf()}`);
 		document.documentElement.appendChild(WCSSPDLF_D);
 	}
 	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
