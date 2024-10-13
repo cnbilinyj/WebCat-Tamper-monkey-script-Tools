@@ -104,16 +104,16 @@
 							e.appendChild((() => {
 								let e = document.createElement("lable");
 								e.setAttribute("for", "WCSSPDLF_D___able");
-								e.appendChild((() => {
-									let e = document.createElement("input");
-									e.type = "checkbox";
-									e.checked = use_settings.WCSSMAM_S;
-									e.id = "WCSSPDLF_D___able";
-									e.addEventListener("change", event => {
-										use_settings.WCSSMAM_S = event.target.checked;
-									});
-									return e;
-								})());
+								let e2 = document.createElement("input");
+								e2.type = "checkbox";
+								e2.checked = use_settings.WCSSMAM_S;
+								e2.addEventListener("change", event => {
+									use_settings.WCSSMAM_S = event.target.checked;
+								});
+								e.addEventListener("click", () => {
+									e2.checked = !e2.checked;
+								});
+								e.appendChild(e2);
 								e.appendChild((() => {
 									let e = document.createElement("i");
 									e.classList.add("mdui-switch-icon")
@@ -153,17 +153,16 @@
 							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
-								e.setAttribute("for", "WCSSPDLF_D___able");
-								e.appendChild((() => {
-									let e = document.createElement("input");
-									e.type = "checkbox";
-									e.checked = use_settings.WCSSPDLF_D;
-									e.id = "WCSSPDLF_D___able";
-									e.addEventListener("change", event => {
-										use_settings.WCSSPDLF_D = event.target.checked;
-									});
-									return e;
-								})());
+								let e2 = document.createElement("input");
+								e2.type = "checkbox";
+								e2.checked = use_settings.WCSSPDLF_D;
+								e2.addEventListener("change", event => {
+									use_settings.WCSSPDLF_D = event.target.checked;
+								});
+								e.addEventListener("click", () => {
+									e2.checked = !e2.checked;
+								});
+								e.appendChild(e2);
 								e.appendChild((() => {
 									let e = document.createElement("i");
 									e.classList.add("mdui-switch-icon")
