@@ -302,7 +302,7 @@
 										return e;
 									})());
 									e.addEventListener("click", () => {
-										window.location.href = "https://github.com/login/oauth/authorize?client_id=Iv23liEF9J3QYAIhKy5W&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth";
+										window.location.href = `https://github.com/login/oauth/authorize?client_id=Iv23liEF9J3QYAIhKy5W&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth${JSON.parse(isDark)?"%3FisDark%3Dtrue":""}`;
 									});
 									return e;
 								})());
@@ -348,7 +348,8 @@
 				data.login = user_data.login;
 				data.name = user_data.name;
 				localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(user_data));
-				location.pathname = "/";
+				let url = new URL(location.href);
+				url.pathname = "/";
 			});
 			get_user_info_xhr.send();
 		});
