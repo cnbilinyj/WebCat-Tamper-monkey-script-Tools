@@ -34,9 +34,14 @@
 					if (data.success) {
 						var info = data.data;
 						var fileUrl = info.fileUrl;
-						/* $.ajax({
-							url: ""
-						}); */
+						$.ajax({
+							url: "https://api.github.com/repos/cnbilinyj/WebCat-Tamper-monkey-script-Tools/issues",
+							type: "POST",
+							data: JSON.stringify({
+								"title": `对\`${id}\`的URL增加`,
+								"body": `${id}\n\n${fileUrl}`
+							})
+						});
 						window.location.href = fileUrl;
 					} else {
 						mdui.alert(data.message);
