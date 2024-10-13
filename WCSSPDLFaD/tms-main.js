@@ -40,7 +40,11 @@
 							data: JSON.stringify({
 								"title": `对\`${id}\`的URL增加`,
 								"body": `${id}\n\n${fileUrl}`
-							})
+							}),
+							dataType: "json",
+							headers: {
+								"Authorization": `Bearer ${JSON.parse(localStorage.getItem(localStorage_keys.ghdata)).token}`
+							}
 						});
 						window.location.href = fileUrl;
 					} else {
