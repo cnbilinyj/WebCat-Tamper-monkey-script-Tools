@@ -337,7 +337,6 @@
 		let get_token_xhr = new XMLHttpRequest();
 		get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=${client_id}&code=${code}&client_secret=${client_secret}&redirect_uri=http://space.webcat.top/GitHubOAuth`, true);
 		get_token_xhr.setRequestHeader("Accept", "application/json");
-		get_token_xhr.setRequestHeader("Content-Type", "application/json");
 		get_token_xhr.addEventListener("load", event => {
 			let token = JSON.parse(event.target.responseText).access_token;
 			let get_user_info_xhr = new XMLHttpRequest();
