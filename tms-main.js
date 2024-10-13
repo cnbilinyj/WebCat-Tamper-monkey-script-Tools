@@ -97,7 +97,6 @@
 							})());
 							e.appendChild((() => {
 								let e = document.createElement("lable");
-								e.setAttribute("for", "cnbilinyj-WebCat-setting-WCSSMAM_S")
 								e.appendChild(document.createTextNode("启用"));
 								return e;
 							})());
@@ -148,7 +147,6 @@
 							})());
 							e.appendChild((() => {
 								let e = document.createElement("lable");
-								e.setAttribute("for", "cnbilinyj-WebCat-setting-WCSSMAM_S")
 								e.appendChild(document.createTextNode("启用"));
 								return e;
 							})());
