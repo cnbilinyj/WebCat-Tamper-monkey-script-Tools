@@ -306,7 +306,7 @@
 									});
 									return e;
 								})());
-								if (!ghdata.ght) {
+								if (!ghdata.token) {
 									es[0].setAttribute("disabled", "");
 									es[1].appendChild(document.createTextNode("需要登录GitHub才能共享链接"));
 								}
