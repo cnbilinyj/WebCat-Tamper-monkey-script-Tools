@@ -109,7 +109,7 @@
 								e2.checked = use_settings.WCSSMAM_S;
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
-									use_settings.WCSSMAM_S = event.target.checked;
+									use_settings.WCSSMAM_S = e2.checked;
 								});
 								e.appendChild(e2);
 								e.appendChild((() => {
@@ -156,7 +156,7 @@
 								e2.checked = use_settings.WCSSPDLF_D;
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
-									use_settings.WCSSPDLF_D = event.target.checked;
+									use_settings.WCSSPDLF_D = e2.checked;
 								});
 								e.appendChild(e2);
 								e.appendChild((() => {
