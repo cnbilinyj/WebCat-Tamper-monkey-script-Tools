@@ -347,7 +347,7 @@
 				data.token = token;
 				data.login = user_data.login;
 				data.name = user_data.name;
-				localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(user_data));
+				localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(data));
 				let url = new URL(location.href);
 				url.pathname = "/";
 				url.search = `?${searchs[search_keys.indexOf("isDark")].join("=")}`;
