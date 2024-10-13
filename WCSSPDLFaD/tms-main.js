@@ -350,7 +350,7 @@
 				localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(user_data));
 				let url = new URL(location.href);
 				url.pathname = "/";
-				url.search = `?${searchs[search_keys.indexOf("isDark")]}`;
+				url.search = `?${searchs[search_keys.indexOf("isDark")].join("=")}`;
 				window.location = url;
 			});
 			get_user_info_xhr.send();
