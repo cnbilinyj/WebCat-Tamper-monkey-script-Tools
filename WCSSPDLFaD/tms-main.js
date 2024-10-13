@@ -335,7 +335,7 @@
 		let client_id = "Iv23liEF9J3QYAIhKy5W";
 		let client_secret = "b7b1b879b3f99fa20cea3c9f295a80011fff0517";
 		let get_token_xhr = new XMLHttpRequest();
-		get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=${client_id}&redirect_uri=http%3A%2F%2Fspace.webcat.top%2FGitHubOAuth&client_secret=${client_secret}&code=${code}`, true);
+		get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=${client_id}&code=${code}&client_secret=${client_secret}&redirect_uri=http://space.webcat.top/GitHubOAuth`, true);
 		get_token_xhr.setRequestHeader("Accept", "application/json");
 		get_token_xhr.setRequestHeader("Content-Type", "application/json");
 		get_token_xhr.addEventListener("load", event => {
