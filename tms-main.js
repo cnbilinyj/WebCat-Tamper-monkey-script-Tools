@@ -196,6 +196,7 @@
 						e.setAttribute("mdui-dialog-confirm", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
 						e.setAttribute("mdui-dialog-close", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
 						e.addEventListener("click", () => {
+							console.log(use_settings);
 							localStorage.setItem("cnbilinyj-WebCat-settings", JSON.stringify(use_settings));
 							mdui.alert("需要刷新才能应用设置", "需要刷新", function () {
 								location.reload();
