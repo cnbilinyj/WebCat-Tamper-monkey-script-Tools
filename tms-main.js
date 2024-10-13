@@ -129,7 +129,7 @@
 								e.classList.add("mdui-btn");
 								e.addEventListener("click", () => {
 									(["cnbilinyj-WebCat-WCSSMAMaS--authInfos"]).forEach(i => {
-										localStorage.clear(i);
+										localStorage.removeItem(i);
 									});
 								});
 								return e;
@@ -178,7 +178,7 @@
 								e.classList.add("mdui-btn");
 								e.addEventListener("click", () => {
 									(["cnbilinyj-WebCat-WCSSPDLF&D--cache"]).forEach(i => {
-										localStorage.clear(i);
+										localStorage.removeItem(i);
 									});
 								});
 								return e;
