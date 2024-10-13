@@ -104,10 +104,12 @@
 							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
+								e.setAttribute("for", "WCSSPDLF_D___able");
 								e.appendChild((() => {
 									let e = document.createElement("input");
 									e.type = "checkbox";
 									e.checked = use_settings.WCSSMAM_S;
+									e.id = "WCSSPDLF_D___able";
 									e.addEventListener("change", event => {
 										use_settings.WCSSMAM_S = event.target.checked;
 									});
@@ -153,10 +155,12 @@
 							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
+								e.setAttribute("for", "WCSSPDLF_D___able");
 								e.appendChild((() => {
 									let e = document.createElement("input");
 									e.type = "checkbox";
 									e.checked = use_settings.WCSSPDLF_D;
+									e.id = "WCSSPDLF_D___able";
 									e.addEventListener("change", event => {
 										use_settings.WCSSPDLF_D = event.target.checked;
 									});
