@@ -328,6 +328,9 @@
 		}
 		mdui.mutation();
 	} else if (window.location.pathname === "/GitHubOAuth") {
+		document.body.innerHTML = "";
+		document.body.appendChild(document.createTextNode("正在登录，完成后将会跳转回主页..."));
+		document.title = "正在登录";
 		let searchs = window.location.search.slice(1).split("&").map(i => i.split("="));
 		let search_keys = searchs.map(i => i[0]);
 		let code = searchs[search_keys.indexOf("code")][1];
@@ -344,6 +347,8 @@
 				data.token = token;
 				data.login = user_data.login;
 				data.name = user_data.name;
+				localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(user_data));
+				location.pathname = "/";
 			});
 			get_user_info_xhr.send();
 		});
