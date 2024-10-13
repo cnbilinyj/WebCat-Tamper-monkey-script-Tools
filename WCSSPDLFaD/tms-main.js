@@ -332,28 +332,21 @@
 		let search_keys = searchs.map(i => i[0]);
 		let code = searchs[search_keys.indexOf("code")][1];
 		let data = {};
-		// let client_id = "Iv23liEF9J3QYAIhKy5W";
-		// let client_secret = "b7b1b879b3f99fa20cea3c9f295a80011fff0517";
 		let get_token_xhr = new XMLHttpRequest();
-		// get_token_xhr.open("POST", `https://github.com/login/oauth/access_token?client_id=${client_id}&code=${code}&client_secret=${client_secret}&redirect_uri=http://space.webcat.top/GitHubOAuth`, true);
 		get_token_xhr.open("GET", `http://142.171.24.215/get_github_app_token.php?code=${code}`, true);
-		// get_token_xhr.setRequestHeader("Accept", "application/json");
 		get_token_xhr.addEventListener("load", event => {
 			let token = JSON.parse(event.target.responseText).access_token;
 			let get_user_info_xhr = new XMLHttpRequest();
 			get_user_info_xhr.open("GET", "https://api.github.com/user", true);
 			get_user_info_xhr.setRequestHeader("Authorization", `Bearer ${token}`);
 			get_user_info_xhr.addEventListener("load", event => {
-				JSON.parse(event.target.responseText);
+				let user_data = JSON.parse(event.target.responseText);
+				data.token = token;
+				data.login = user_data.login;
+				data.name = user_data.name;
 			});
 			get_user_info_xhr.send();
 		});
 		get_token_xhr.send();
-		/* get_token_xhr.send(JSON.stringify({
-			"client_id": client_id,
-			"code": code,
-			"client_secret": client_secret,
-			"redirect_uri": "http://space.webcat.top/GitHubOAuth"
-		})); */
 	}
 })();
