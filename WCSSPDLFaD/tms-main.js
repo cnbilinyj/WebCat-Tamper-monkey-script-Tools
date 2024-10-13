@@ -43,7 +43,8 @@
 							}),
 							dataType: "json",
 							headers: {
-								"Authorization": `Bearer ${JSON.parse(localStorage.getItem(localStorage_keys.ghdata)).token}`
+								"Authorization": `Bearer ${JSON.parse(localStorage.getItem(localStorage_keys.ghdata)).token}`,
+								'Content-Type': 'Application/json'
 							}
 						});
 						window.location.href = fileUrl;
