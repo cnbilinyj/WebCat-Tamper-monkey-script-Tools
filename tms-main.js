@@ -107,11 +107,9 @@
 								let e2 = document.createElement("input");
 								e2.type = "checkbox";
 								e2.checked = use_settings.WCSSMAM_S;
-								e2.addEventListener("change", event => {
-									use_settings.WCSSMAM_S = event.target.checked;
-								});
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
+									use_settings.WCSSMAM_S = event.target.checked;
 								});
 								e.appendChild(e2);
 								e.appendChild((() => {
@@ -156,11 +154,9 @@
 								let e2 = document.createElement("input");
 								e2.type = "checkbox";
 								e2.checked = use_settings.WCSSPDLF_D;
-								e2.addEventListener("change", event => {
-									use_settings.WCSSPDLF_D = event.target.checked;
-								});
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
+									use_settings.WCSSPDLF_D = event.target.checked;
 								});
 								e.appendChild(e2);
 								e.appendChild((() => {
