@@ -20,8 +20,6 @@
 		let element = document.createElement("a");
 		element.setAttribute("class", "mdui-btn mdui-btn-icon mdui-color-blue-400 mdui-ripple");
 		let no_free_get_url = function no_free_get_url () {
-			vue.download(vue.detailInfo.id, vue.detailInfo.name);
-
 			$.ajax({
 				url: "http://source.webcat.top/source/querySourceUrlById",
 				type: "GET",
