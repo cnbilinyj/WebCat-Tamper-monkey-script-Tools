@@ -24,7 +24,7 @@
 	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		let drawer = document.getElementById("left-drawer");
 		$.ajax({
-			"url": "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1",
+			"url": "http://142.171.24.215/get_bing_daily_map.php",
 			"type": "GET",
 			"success": data => {
 				drawer.querySelector("div.mdui-card > div.mdui-card-media > img").src = `https://cn.bing.com/${data.images[0].url}`;
