@@ -127,6 +127,8 @@
 								e.classList.add("mdui-switch");
 								return e;
 							})());
+							e.appendChild(document.createElement("br"));
+							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
 								e.appendChild(document.createTextNode("测试版"));
