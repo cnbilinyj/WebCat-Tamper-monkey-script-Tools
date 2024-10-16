@@ -137,7 +137,7 @@
 								let e = document.createElement("lable");
 								let e2 = document.createElement("input");
 								e2.type = "checkbox";
-								e2.checked = use_settings.WCSSMAM_S;
+								e2.checked = use_settings.WCSSMAM_S_pigeonhole;
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
 									use_settings.WCSSMAM_S_pigeonhole = e2.checked;
