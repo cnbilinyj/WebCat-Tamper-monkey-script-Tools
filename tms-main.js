@@ -13,7 +13,7 @@
 	let use_settings = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-settings")) || {};
 	if (use_settings.WCSSMAM_S && (["/", "/index.html"]).indexOf(window.location.pathname) != -1) {
 		let WCSSMAM_S = document.createElement("script");
-		WCSSMAM_S.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main.js?timestamp=${new Date().valueOf()}`);
+		WCSSMAM_S.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSMAMaS/tms-main${use_settings.WCSSMAM_S_pigeonhole?"-pigeonhole":""}.js?timestamp=${new Date().valueOf()}`);
 		document.documentElement.appendChild(WCSSMAM_S);
 	}
 	if (use_settings.WCSSPDLF_D && (["/", "/index.html", "/page/detail.html", "/GitHubOAuth"]).indexOf(window.location.pathname) != -1){
@@ -111,13 +111,36 @@
 							e.appendChild(document.createElement("br"));
 							e.appendChild((() => {
 								let e = document.createElement("lable");
-								e.setAttribute("for", "WCSSPDLF_D___able");
 								let e2 = document.createElement("input");
 								e2.type = "checkbox";
 								e2.checked = use_settings.WCSSMAM_S;
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
 									use_settings.WCSSMAM_S = e2.checked;
+								});
+								e.appendChild(e2);
+								e.appendChild((() => {
+									let e = document.createElement("i");
+									e.classList.add("mdui-switch-icon")
+									return e;
+								})());
+								e.classList.add("mdui-switch");
+								return e;
+							})());
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								e.appendChild(document.createTextNode("测试版"));
+								return e;
+							})());
+							e.appendChild(document.createElement("br"));
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								let e2 = document.createElement("input");
+								e2.type = "checkbox";
+								e2.checked = use_settings.WCSSMAM_S;
+								e.addEventListener("click", () => {
+									e2.checked = !e2.checked;
+									use_settings.WCSSMAM_S_pigeonhole = e2.checked;
 								});
 								e.appendChild(e2);
 								e.appendChild((() => {
