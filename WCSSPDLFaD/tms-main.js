@@ -267,7 +267,8 @@
 										return e;
 										e.addEventListener("change", event => {
 											ghdata.enableShare = event.target.checked;
-										})
+											console.log(event.target.checked);
+										});
 									})());
 									e.appendChild((() => {
 										let e = document.createElement("i");
