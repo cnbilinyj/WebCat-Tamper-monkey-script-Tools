@@ -263,7 +263,11 @@
 										let e = document.createElement("input");
 										es[0] = e;
 										e.setAttribute("type", "checkbox");
+										e.checked = ghdata.enableShare;
 										return e;
+										e.addEventListener("change", event => {
+											ghdata.enableShare = event.target.checked;
+										})
 									})());
 									e.appendChild((() => {
 										let e = document.createElement("i");
@@ -329,6 +333,14 @@
 					e.appendChild((() => {
 						let e = document.createElement("div");
 						e.classList.add("mdui-dialog-actions");
+						e.appendChild((() => {
+							let e = document.createElement("button");
+							e.classList.add("mdui-btn mdui-ripple", "mdui-text-color-primary");
+							e.innerText = "保存";
+							e.addEventListener("click", () => {
+								localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(ghdata))
+							})
+						}))
 						return e;
 					})());
 					return e;
