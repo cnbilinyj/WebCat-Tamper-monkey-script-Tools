@@ -1,3 +1,10 @@
+<style>
+	.markdown-alert-title, .markdown-alert-title * {
+		color: #0366d6;
+		fill: #0366d6;
+	}
+</style>
+
 # WebCat-Tamper-monkey-script-Tools
 
 （懒得翻译了，我寻思着应该不会有哪个老外会用咱们国内的WebCat共享空间吧）
@@ -20,6 +27,6 @@
 
 1. **2024-10-18**: 
 	增加无论如何都重写下载按钮，如果没能从存储库中获取到下载直链，且篡改猴脚本使用者同意分享获取到的下载直链，则使用重写后的下载函数获取下载直链，并公开至本存储库
-> <p class="markdown-alert-title" dir="auto" style="color: #4493f8"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" fill="#4493f8"></path></svg>Note</p>
+> <p class="markdown-alert-title" dir="auto" style="color: #0366d6"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" fill="#0366d6"></path></svg>Note</p>
 > 功能异常，后续修复
 
