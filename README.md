@@ -1,4 +1,8 @@
 <style>
+	.markdown-body blockquote {
+		border-left: 0.25em solid #0366d6;
+	}
+
 	.markdown-alert-title, .markdown-alert-title * {
 		color: #0366d6;
 		fill: #0366d6;
