@@ -265,16 +265,16 @@
 										e.setAttribute("type", "checkbox");
 										e.checked = ghdata.enableShare;
 										return e;
-										e.addEventListener("change", event => {
-											ghdata.enableShare = event.target.checked;
-											console.log(event.target.checked);
-										});
 									})());
 									e.appendChild((() => {
 										let e = document.createElement("i");
 										e.classList.add("mdui-switch-icon");
 										return e;
 									})());
+									e.addEventListener("click", event => {
+										ghdata.enableShare = es[0].checked;
+										console.log(es[0].checked);
+									});
 									return e;
 								})());
 								e.appendChild((() => {
