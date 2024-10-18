@@ -79,6 +79,15 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					});
 					return e;
 				})());
+				e.appendChild((() => {
+					let e = document.createElement("button");
+					e.classList.add("mdui-btn", "mdui-ripple");
+					e.appendChild(document.createTextNode("取消"));
+					e.addEventListener("click", event => {
+						accountSettingsDialog.close();
+					});
+					return e;
+				})());
 				return e;
 			})());
 			return e;
