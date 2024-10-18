@@ -10,7 +10,10 @@
 // ==/UserScript==
 
 if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
-	let localStorage_key = "cnbilinyj-WebCat-WCSSMAMaS--authInfos";
+	let localStorage_key = {
+		"authInfos": "cnbilinyj-WebCat-WCSSMAMaS--authInfos"
+	};
+	let authInfos = JSON.parse(localStorage.getItem(localStorage_key.authInfos));
 	let e = document.body;
 	if(Array.from(e.children).map(i => {
 		return i.getAttribute("cnbilinyj-webcat-element");
