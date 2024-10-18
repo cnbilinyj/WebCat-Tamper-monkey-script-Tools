@@ -18,8 +18,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		let settingsElement = document.createElement("li");
 		settingsElement.appendChild((() => {
 			let e = document.createElement("i");
-			e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-deep-purple-400", "mdui-text-color-white");
-			e.appendChild(document.createTextNode("settings"));
+			e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-orange-400", "mdui-text-color-white");
+			e.appendChild(document.createTextNode("account_circle"));
 			return e;
 		})());
 		settingsElement.appendChild((() => {
@@ -28,13 +28,13 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 			e.appendChild((() => {
 				let e = document.createElement("div");
 				e.classList.add("mdui-list-item-title");
-				e.appendChild(document.createTextNode("工具设置"));
+				e.appendChild(document.createTextNode("切换账号"));
 				return e;
 			})());
 			e.appendChild((() => {
 				let e = document.createElement("div");
 				e.classList.add("mdui-list-item-text");
-				e.appendChild(document.createTextNode("农药君WebCat工具设置"));
+				e.appendChild(document.createTextNode("切换账号，刷新生效"));
 				return e;
 			})());
 			return e;
