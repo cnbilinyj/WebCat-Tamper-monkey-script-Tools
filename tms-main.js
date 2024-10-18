@@ -23,13 +23,6 @@
 	}
 	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		let drawer = document.getElementById("left-drawer");
-		$.ajax({
-			"url": "http://142.171.24.215/get_bing_daily_map.php",
-			"type": "GET",
-			"success": data => {
-				drawer.querySelector("div.mdui-card > div.mdui-card-media > img").src = `https://cn.bing.com/${data.images[0].url}`;
-			}
-		});
 		let e = drawer.getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
