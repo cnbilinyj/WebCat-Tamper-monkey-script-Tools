@@ -117,6 +117,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
 		settingsElement.addEventListener("click", () => {
 			accountSettingsDialog.open();
+			console.log(accountSettingsDialog);
 		});
 		e.appendChild(settingsElement);
 	}
