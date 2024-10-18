@@ -18,6 +18,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		let settingsDialogElement = document.createElement("div");
 		settingsDialogElement.setAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
 		settingsDialogElement.dialog = mdui.Dialog(settingsDialogElement);
+		settingsDialogElement.classList.add("mdui-dialog")
 		e.appendChild(settingsDialogElement);
 	}
 	e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
