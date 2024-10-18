@@ -19,8 +19,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		return i.getAttribute("cnbilinyj-webcat-element");
 	}).indexOf("account-settings-dialog") === -1){
 		let settingsDialogElement = document.createElement("div");
+		let dialog = new mdui.Dialog(settingsDialogElement);
 		settingsDialogElement.setAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
-		settingsDialogElement.dialog = new mdui.Dialog(settingsDialogElement);
 		settingsDialogElement.classList.add("mdui-dialog");
 		settingsDialogElement.appendChild((() => {
 			let e = document.createElement("div");
@@ -68,7 +68,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("确认"));
 					e.addEventListener("click", event => {
-						let dialog = event.target.dialog;
 						let us = dialog.$element[0].children[1].children[1].value;
 						if (us != ""){
 							localStorage.setItem("authInfo", authInfos[us]);
