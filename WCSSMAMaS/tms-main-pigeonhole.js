@@ -11,7 +11,16 @@
 
 if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 	let localStorage_key = "cnbilinyj-WebCat-WCSSMAMaS--authInfos";
-	let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
+	let e = document.body;
+	if(Array.from(e.children).map(i => {
+		return i.getAttribute("cnbilinyj-webcat-element");
+	}).indexOf("account-settings-dialog") === -1){
+		let settingsDialogElement = document.createElement("div");
+		settingsDialogElement.getAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
+		settingsDialogElement.dialog = mdui.Dialog(settingsDialogElement);
+		e.appendChild(settingsDialogElement);
+	}
+	e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 	if(Array.from(e.children).map(i => {
 		return i.getAttribute("cnbilinyj-webcat-element");
 	}).indexOf("account") === -1){
@@ -43,15 +52,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
 		settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'account-settings-dialog\\']'}");
 		e.appendChild(settingsElement);
-	}
-	e = document.body;
-	if(Array.from(e.children).map(i => {
-		return i.getAttribute("cnbilinyj-webcat-element");
-	}).indexOf("account-settings-dialog") === -1){
-		let settingsDialogElement = document.createElement("div");
-		settingsDialogElement.getAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
-		settingsDialogElement.dialog = mdui.Dialog(settingsDialogElement);
-		e.appendChild(settingsDialogElement);
 	}
 	mdui.mutation();
 }
