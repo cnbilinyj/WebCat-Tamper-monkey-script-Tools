@@ -341,7 +341,7 @@
 								localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(ghdata))
 							});
 							return e;
-						}))
+						})())
 						return e;
 					})());
 					return e;
