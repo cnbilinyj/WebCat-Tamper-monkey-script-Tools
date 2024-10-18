@@ -50,6 +50,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 	}).indexOf("account-settings-dialog") === -1){
 		let settingsDialogElement = document.createElement("div");
 		settingsDialogElement.getAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
+		settingsDialogElement.dialog = mdui.Dialog(settingsDialogElement);
 		e.appendChild(settingsDialogElement);
 	}
 	mdui.mutation();
