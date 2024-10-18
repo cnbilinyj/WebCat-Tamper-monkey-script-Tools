@@ -4,5 +4,5 @@
 
 # WebCat篡改猴工具
 
-[__*WebCat共享空间项目直链获取与下载*__](WCSSPDLFaD/README.MD)
+[__*WebCat共享空间项目直链获取与下载*__](WCSSPDLFaD/README.md)
 
