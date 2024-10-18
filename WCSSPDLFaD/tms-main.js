@@ -339,7 +339,8 @@
 							e.innerText = "保存";
 							e.addEventListener("click", () => {
 								localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(ghdata))
-							})
+							});
+							return e;
 						}))
 						return e;
 					})());
