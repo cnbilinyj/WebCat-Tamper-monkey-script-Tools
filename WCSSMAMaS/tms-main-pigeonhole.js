@@ -13,13 +13,14 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 	let localStorage_key = {
 		"authInfos": "cnbilinyj-WebCat-WCSSMAMaS--authInfos"
 	};
+	let accountSettingsDialog;
 	let authInfos = JSON.parse(localStorage.getItem(localStorage_key.authInfos));
 	let e = document.body;
 	if(Array.from(e.children).map(i => {
 		return i.getAttribute("cnbilinyj-webcat-element");
 	}).indexOf("account-settings-dialog") === -1){
 		let settingsDialogElement = document.createElement("div");
-		let dialog = new mdui.Dialog(settingsDialogElement);
+		accountSettingsDialog = new mdui.Dialog(settingsDialogElement);
 		settingsDialogElement.setAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
 		settingsDialogElement.classList.add("mdui-dialog");
 		settingsDialogElement.appendChild((() => {
@@ -67,14 +68,14 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					let e = document.createElement("button");
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("确认"));
+					e.setAttribute("mdui-dialog-close")
 					e.addEventListener("click", event => {
-						let us = dialog.$element[0].children[1].children[1].value;
+						let us = accountSettingsDialog.$element[0].children[1].children[1].value;
 						if (us != ""){
 							localStorage.setItem("authInfo", authInfos[us]);
 						}else{
 							localStorage.removeItem("authInfo");
 						}
-						dialog.$element[0].classList.remove("mdui-dialog-open");
 					});
 					return e;
 				})());
@@ -114,7 +115,9 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		})());
 		settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
-		settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'account-settings-dialog\\']'}");
+		settingsElement.addEventListener("click", () => {
+			accountSettingsDialog.open();
+		});
 		e.appendChild(settingsElement);
 	}
 	mdui.mutation();
