@@ -42,7 +42,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 				Object.keys(authInfos).forEach(item => {
 					e.appendChild((() => {
 						let e = document.createElement("option");
-						e.setAttribute("value", item)
+						e.setAttribute("value", item);
 						e.appendChild(document.createTextNode(item));
 						e.appendChild(document.createTextNode(": "));
 						e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.username));
@@ -52,6 +52,33 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						return e;
 					})());
 				});
+				e.appendChild((() => {
+					let e = document.createElement("option");
+					e.setAttribute("value", "");
+					e.appendChild(document.createTextNode("退出登录"));
+					return e;
+				})());
+				return e;
+			})());
+			e.appendChild((() => {
+				let e = document.createElement("div");
+				e.classList.add("mdui-dialog-actions", "mdui-dialog-actions-stacked");
+				e.appendChild((() => {
+					let e = document.createElement("button");
+					e.classList.add("mdui-btn", "mdui-ripple");
+					e.appendChild(document.createTextNode("确认"));
+					e.addEventListener("click", event => {
+						let dialog = event.target.dialog;
+						let us = dialog.$element[0].children[1].children[1].value;
+						if (us != ""){
+							localStorage.setItem("authInfo", authInfos[us]);
+						}else{
+							localStorage.removeItem("authInfo");
+						}
+						dialog.close();
+					})
+					return e;
+				})());
 				return e;
 			})());
 			return e;
