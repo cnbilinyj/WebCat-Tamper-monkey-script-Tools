@@ -42,7 +42,9 @@
 							dataType: "json",
 							headers: {
 								"Authorization": `Bearer ${JSON.parse(localStorage.getItem(localStorage_keys.ghdata)).token}`,
-								'Content-Type': 'Application/json'
+								'Content-Type': 'Application/json',
+								'Accept': 'application/vnd.github+json',
+								'X-GitHub-Api-Version': '2022-11-28'
 							}
 						});
 						window.location.href = fileUrl;
