@@ -18,7 +18,41 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		let settingsDialogElement = document.createElement("div");
 		settingsDialogElement.setAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
 		settingsDialogElement.dialog = mdui.Dialog(settingsDialogElement);
-		settingsDialogElement.classList.add("mdui-dialog")
+		settingsDialogElement.classList.add("mdui-dialog");
+		settingsDialogElement.appendChild((() => {
+			let e = document.createElement("div");
+			e.classList.add("mdui-dialog-title");
+			e.appendChild(document.createTextNode("切换账户"));
+			return e;
+		})());
+		settingsDialogElement.appendChild((() => {
+			let e = document.createElement("div");
+			e.classList.add("mdui-dialog-content");
+			e.appendChild((() => {
+				let e = document.createElement("p");
+				e.appendChild(document.createTextNode("选择账号："));
+				return e;
+			})());
+			e.appendChild((() => {
+				let e = document.createElement("select");
+				e.setAttribute("mdui-select", "");
+				Object.keys(authInfos).forEach(item => {
+					e.appendChild((() => {
+						let e = document.createElement("option");
+						e.setAttribute("value", item)
+						e.appendChild(document.createTextNode(item));
+						e.appendChild(document.createTextNode(": "));
+						e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.username));
+						e.appendChild(document.createTextNode(" ("));
+						e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.userId));
+						e.appendChild(document.createTextNode(")"));
+						return e;
+					})());
+				});
+				return e;
+			})());
+			return e;
+		})());
 		e.appendChild(settingsDialogElement);
 	}
 	e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];

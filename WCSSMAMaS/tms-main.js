@@ -217,6 +217,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 												}else{
 													authInfos = account_data;
 													localStorage.setItem(localStorage_key, authInfos);
+													dialog.open();
 												}
 											}catch(e){
 												alert(`数据格式错误
