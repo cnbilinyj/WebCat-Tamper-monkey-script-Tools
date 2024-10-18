@@ -68,7 +68,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					let e = document.createElement("button");
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("确认"));
-					e.setAttribute("mdui-dialog-close")
+					e.setAttribute("mdui-dialog-close", "")
 					e.addEventListener("click", event => {
 						let us = accountSettingsDialog.$element[0].children[1].children[1].value;
 						if (us != ""){
