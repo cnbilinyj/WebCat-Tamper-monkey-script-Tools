@@ -74,8 +74,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						}else{
 							localStorage.removeItem("authInfo");
 						}
-						dialog.close();
-					})
+						dialog.$element[0].classList.remove("mdui-dialog-open");
+					});
 					return e;
 				})());
 				return e;
