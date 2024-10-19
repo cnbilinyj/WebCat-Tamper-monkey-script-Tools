@@ -228,7 +228,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
 		settingsElement.addEventListener("click", () => {
-			let accountsSelector = accountSettingsDialog.$element[0].children[1].children[1].example.$native;
+			let accountsSelector = accountSettingsDialog.$element[0].children[1].children[1].example.$native[0];
 			Array.from(accountsSelector.children).forEach((i, n, a) => {
 				i.remove();
 			});
