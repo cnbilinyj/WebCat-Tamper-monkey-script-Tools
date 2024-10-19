@@ -39,7 +39,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 			})());
 			e.appendChild((() => {
 				let e = document.createElement("select");
-				e.setAttribute("mdui-select", "");
+				e.setAttribute("mdui-select", "{position: 'bottom'}");
+				e.classList.add("mdui-select");
 				Object.keys(authInfos).forEach(item => {
 					e.appendChild((() => {
 						let e = document.createElement("option");
@@ -127,7 +128,9 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						let us = select_element.value;
 						if (us != ""){
 							Reflect.deleteProperty(authInfos, us);
-							select_element.innerHTML = "";
+							Array.from(select_element.children).forEach((i) => {
+								i.remove();
+							});
 							Object.keys(authInfos).forEach(item => {
 								let option = document.createElement("option");
 								option.setAttribute("value", item);
@@ -140,7 +143,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 								option.innerText = `退出登录`;
 								return option;
 							})());
-							accountSettingsDialog.$element[0].children[1].children[1].example.handleUpdate();
 							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 						} else {
 							accountSettingsDialog.close();
