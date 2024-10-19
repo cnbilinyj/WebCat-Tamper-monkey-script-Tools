@@ -133,6 +133,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						if (us != ""){
 							Reflect.deleteProperty(authInfos, us);
 							Array.from(select_element.children).forEach((i) => {
+								console.log(i);
 								i.remove();
 							});
 							Object.keys(authInfos).forEach(item => {
