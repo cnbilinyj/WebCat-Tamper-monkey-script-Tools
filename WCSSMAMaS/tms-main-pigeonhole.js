@@ -103,11 +103,11 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 										mdui.confirm("已有重复的账号标签，是否覆盖？", "账号标签冲突", (confirm_dialog) => {
 											dialog.destroy();
 											authInfos[text] = localStorage.getItem("authInfo");
-											localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+											localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 										});
 									} else {
 										authInfos[text] = localStorage.getItem("authInfo");
-										localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+										localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 									}
 								}
 							});
