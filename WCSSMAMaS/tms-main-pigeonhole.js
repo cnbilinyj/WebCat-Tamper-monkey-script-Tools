@@ -141,7 +141,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 								return option;
 							})());
 							accountSettingsDialog.$element[0].children[1].children[1].example.handleUpdate();
-							localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 						} else {
 							accountSettingsDialog.close();
 							mdui.alert("请选择正确的账号！", "选择错误", () => {
@@ -163,7 +163,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 									mdui.alert("账号内容不能为空", null, accountSettingsDialog.open);
 								} else {
 									authInfos[auth_data_index] = account_data;
-									localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+									localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 								}
 							});
 						};
