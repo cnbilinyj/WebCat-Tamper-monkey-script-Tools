@@ -63,6 +63,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 				})());
 				e.example.handleUpdate();
 				e.example.$element.example = e.example;
+				console.log(e);
 				return e.example.$element;
 			})());
 			e.appendChild((() => {
