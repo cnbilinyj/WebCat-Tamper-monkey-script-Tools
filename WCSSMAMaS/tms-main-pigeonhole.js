@@ -62,8 +62,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					return e;
 				})());
 				e.example.handleUpdate();
-				e.examples.$element.examples = e.examples;
-				return e.examples.$element;
+				e.example.$element.example = e.example;
+				return e.example.$element;
 			})());
 			e.appendChild((() => {
 				let e = document.createElement("div");
@@ -73,7 +73,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("确认"));
 					e.addEventListener("click", event => {
-						let us = accountSettingsDialog.$element[0].children[1].children[1].examples.$native.value;
+						let us = accountSettingsDialog.$element[0].children[1].children[1].example.$native.value;
 						if (us != ""){
 							localStorage.setItem("authInfo", authInfos[us]);
 						} else {
@@ -127,7 +127,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("删除当前选中账号"));
 					e.addEventListener("click", event => {
-						let select_element = accountSettingsDialog.$element[0].children[1].children[1].examples.$native;
+						let select_element = accountSettingsDialog.$element[0].children[1].children[1].example.$native;
 						let us = select_element.value;
 						if (us != ""){
 							Reflect.deleteProperty(authInfos, us);
@@ -227,7 +227,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
 		settingsElement.addEventListener("click", () => {
-			let accountsSelector = accountSettingsDialog.$element[0].children[1].children[1].examples.$native;
+			let accountsSelector = accountSettingsDialog.$element[0].children[1].children[1].example.$native;
 			Array.from(accountsSelector.children).forEach((i, n, a) => {
 				i.remove();
 			});
