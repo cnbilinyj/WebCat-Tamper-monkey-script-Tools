@@ -62,9 +62,9 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					return e;
 				})());
 				e.example.handleUpdate();
-				e.example.$element.example = e.example;
+				e.example.$element[0].example = e.example;
 				console.log(e);
-				return e.example.$element;
+				return e.example.$element[0];
 			})());
 			e.appendChild((() => {
 				let e = document.createElement("div");
