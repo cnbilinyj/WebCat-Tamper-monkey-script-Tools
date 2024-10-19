@@ -150,7 +150,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 							})());
 							let example = select_element.example;
 							example.handleUpdate();
-							accountSettingsDialog.$element[0].children[1].children[0].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling);
+							accountSettingsDialog.$element[0].children[1].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling);
 							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 						} else {
 							accountSettingsDialog.close();
