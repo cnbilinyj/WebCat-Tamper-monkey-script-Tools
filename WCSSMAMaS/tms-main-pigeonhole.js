@@ -143,6 +143,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 								option.innerText = `退出登录`;
 								return option;
 							})());
+							accountSettingsDialog.$element[0].children[1].children[1].handleUpdate();
 							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 						} else {
 							accountSettingsDialog.close();
