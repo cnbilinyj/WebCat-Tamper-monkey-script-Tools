@@ -128,11 +128,11 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("删除当前选中账号"));
 					e.addEventListener("click", event => {
-						let select_element = accountSettingsDialog.$element[0].children[1].children[1].example.$native;
+						let select_element = accountSettingsDialog.$element[0].children[1].children[1].example.$native[0];
 						let us = select_element.value;
 						if (us != ""){
 							Reflect.deleteProperty(authInfos, us);
-							Array.from(select_element.children).forEach((i) => {select_element.children
+							Array.from(select_element.children).forEach((i) => {
 								console.log(i, select_element.children);
 								// i.remove();
 							});
@@ -148,7 +148,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 								option.innerText = `退出登录`;
 								return option;
 							})());
-							let example = accountSettingsDialog.$element[0].children[1].children[1].example
+							let example = select_element.example;
 							example.handleUpdate();
 							accountSettingsDialog.$element[0].children[1].children[0].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling);
 							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
