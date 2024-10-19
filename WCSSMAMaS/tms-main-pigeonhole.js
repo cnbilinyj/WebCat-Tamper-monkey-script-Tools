@@ -72,7 +72,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						let us = accountSettingsDialog.$element[0].children[1].children[1].value;
 						if (us != ""){
 							localStorage.setItem("authInfo", authInfos[us]);
-						}else{
+						} else {
 							localStorage.removeItem("authInfo");
 						}
 						accountSettingsDialog.close();
@@ -85,6 +85,102 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.appendChild(document.createTextNode("取消"));
 					e.addEventListener("click", event => {
 						accountSettingsDialog.close();
+					});
+					return e;
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("button");
+					e.classList.add("mdui-btn", "mdui-ripple");
+					e.appendChild(document.createTextNode("记录当前登录账号"));
+					e.addEventListener("click", event => {
+						accountSettingsDialog.close();
+						if(localStorage.getItem("authInfo")){
+							mdui.prompt("请输入账号标签", null, (text, example) => {
+								if (text === ""){
+									mdui.alert("账号标签不能为空", null, dialog.open);
+								} else {
+									if(Object.keys(authInfos).indexOf(text) != -1){
+										mdui.confirm("已有重复的账号标签，是否覆盖？", "账号标签冲突", (confirm_dialog) => {
+											dialog.destroy();
+											authInfos[text] = localStorage.getItem("authInfo");
+											localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+										});
+									} else {
+										authInfos[text] = localStorage.getItem("authInfo");
+										localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+									}
+								}
+							});
+						} else {
+							mdui.alert("未登录，无法记录账号数据", "未登录");
+						}
+						accountSettingsDialog.open();
+					});
+					return e;
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("button");
+					e.classList.add("mdui-btn", "mdui-ripple");
+					e.appendChild(document.createTextNode("删除当前选中账号"));
+					e.addEventListener("click", event => {
+						let select_element = accountSettingsDialog.$element[0].children[1].children[1];
+						let us = select_element.value;
+						if (us != ""){
+							Reflect.deleteProperty(authInfos, us);
+							select_element.innerHTML = "";
+							Object.keys(authInfos).forEach(item => {
+								let option = document.createElement("option");
+								option.setAttribute("value", item);
+								option.innerText = `${item}: ${JSON.parse(authInfos[item]).user.username} (${JSON.parse(authInfos[item]).user.userId})`;
+								select_element.appendChild(option);
+							});
+							select_element.appendChild((() => {
+								let option = document.createElement("option");
+								option.setAttribute("value", "");
+								option.innerText = `退出登录`;
+								return option;
+							})());
+							accountSettingsDialog.$element[0].children[1].children[1].example.handleUpdate();
+							localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+						} else {
+							accountSettingsDialog.close();
+							mdui.alert("请选择正确的账号！", "选择错误", () => {
+								accountSettingsDialog.open();
+							});
+						}
+					});
+					return e;
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("button");
+					e.classList.add("mdui-btn", "mdui-ripple");
+					e.appendChild(document.createTextNode("记录其他账号"));
+					e.addEventListener("click", event => {
+						accountSettingsDialog.close();
+						let add_data = function (auth_data_index) {
+							mdui.prompt("请输入账号内容", null, (account_data, example) => {
+								if (account_data === ""){
+									mdui.alert("账号内容不能为空", null, accountSettingsDialog.open);
+								} else {
+									authInfos[auth_data_index] = account_data;
+									localStorage.setItem(localStorage_key, JSON.stringify(authInfos));
+								}
+							});
+						};
+						mdui.prompt("请输入账号标签", null, (auth_data_index, example) => {
+							if (auth_data_index === ""){
+								mdui.alert("账号标签不能为空", null, accountSettingsDialog.open);
+							} else {
+								if(Object.keys(authInfos).indexOf(auth_data_index) != -1){
+									mdui.confirm("已有重复的账号标签，是否覆盖？", "账号标签冲突", (confirm_dialog) => {
+										add_data(auth_data_index);
+									});
+								} else {
+									add_data(auth_data_index);
+								}
+							}
+						});
+						accountSettingsDialog.open();
 					});
 					return e;
 				})());
@@ -125,6 +221,24 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
 		settingsElement.addEventListener("click", () => {
+			let accountsSelector = accountSettingsDialog.$element[0].children[1].children[1]
+			Array.from(accountsSelector.children).forEach((i, n, a) => {
+				i.remove();
+			});
+			authInfos = JSON.parse(localStorage.getItem(localStorage_key.authInfos));
+			Object.keys(authInfos).forEach(item => {
+				accountsSelector.appendChild((() => {
+					let e = document.createElement("option");
+					e.setAttribute("value", item);
+					e.appendChild(document.createTextNode(item));
+					e.appendChild(document.createTextNode(": "));
+					e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.username));
+					e.appendChild(document.createTextNode(" ("));
+					e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.userId));
+					e.appendChild(document.createTextNode(")"));
+					return e;
+				})());
+			});
 			accountSettingsDialog.open();
 			console.log(accountSettingsDialog);
 		});
