@@ -61,6 +61,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.appendChild(document.createTextNode("退出登录"));
 					return e;
 				})());
+				e.example.handleUpdate();
 				return e;
 			})());
 			e.appendChild((() => {
