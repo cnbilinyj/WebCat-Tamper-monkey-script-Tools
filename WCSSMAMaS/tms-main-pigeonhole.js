@@ -74,7 +74,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("确认"));
 					e.addEventListener("click", event => {
-						let us = accountSettingsDialog.$element[0].children[1].children[1].example.$native.value;
+						let us = accountSettingsDialog.$element[0].children[1].children[1].example.$native[0].value;
 						if (us != ""){
 							localStorage.setItem("authInfo", authInfos[us]);
 						} else {
