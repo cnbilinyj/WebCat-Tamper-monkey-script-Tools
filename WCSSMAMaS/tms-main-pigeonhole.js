@@ -158,7 +158,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						let us = select_element.value;
 						if (us != ""){
 							Reflect.deleteProperty(authInfos, us);
-							Array.from(select_element.children).forEach((i) => {
+							/* Array.from(select_element.children).forEach((i) => {
 								i.remove();
 							});
 							Object.keys(authInfos).forEach(item => {
@@ -175,7 +175,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 							})());
 							let example = select_element.example;
 							example.handleUpdate();
-							accountSettingsDialog.$element[0].children[1].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling);
+							accountSettingsDialog.$element[0].children[1].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling); */
+							updateAccountsSelector();
 							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 						} else {
 							accountSettingsDialog.close();
