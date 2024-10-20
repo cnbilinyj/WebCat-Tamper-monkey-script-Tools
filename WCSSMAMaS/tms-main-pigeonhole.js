@@ -87,9 +87,10 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.appendChild(document.createTextNode("退出登录"));
 					return e;
 				})());
-				e.example.handleUpdate();
-				e.example.$element[0].example = e.example;
-				return e.example.$element[0];
+				console.log(accountsSelectorExample);
+				accountsSelectorExample.handleUpdate();
+				accountsSelectorExample.$element[0].example = accountsSelectorExample;
+				return accountsSelectorExample.$element[0];
 			})());
 			e.appendChild((() => {
 				let e = document.createElement("div");
