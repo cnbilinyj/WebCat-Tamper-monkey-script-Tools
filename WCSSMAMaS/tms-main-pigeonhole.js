@@ -14,37 +14,12 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		"authInfos": "cnbilinyj-WebCat-WCSSMAMaS--authInfos"
 	};
 	let accountSettingsDialog;
-	let accountsSelectorExample;
 	let authInfos = JSON.parse(localStorage.getItem(localStorage_key.authInfos));
 	let e = document.body;
 	if(Array.from(e.children).map(i => {
 		return i.getAttribute("cnbilinyj-webcat-element");
 	}).indexOf("account-settings-dialog") === -1){
 		let settingsDialogElement = document.createElement("div");
-		let updateAccountsSelector = function updateAccountsSelector () {
-			let e = accountsSelectorExample.$native[0];
-			Object.keys(authInfos).forEach(item => {
-				e.appendChild((() => {
-					let e = document.createElement("option");
-					e.setAttribute("value", item);
-					e.appendChild(document.createTextNode(item));
-					e.appendChild(document.createTextNode(": "));
-					e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.username));
-					e.appendChild(document.createTextNode(" ("));
-					e.appendChild(document.createTextNode(JSON.parse(authInfos[item]).user.userId));
-					e.appendChild(document.createTextNode(")"));
-					return e;
-				})());
-			});
-			e.appendChild((() => {
-				let e = document.createElement("option");
-				e.setAttribute("value", "");
-				e.appendChild(document.createTextNode("退出登录"));
-				return e;
-			})());
-			accountsSelectorExample.handleUpdate();
-			accountSettingsDialog.$element[0].children[1].insertBefore(accountsSelectorExample.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling);
-		}
 		accountSettingsDialog = new mdui.Dialog(settingsDialogElement);
 		settingsDialogElement.setAttribute("cnbilinyj-webcat-element", "account-settings-dialog");
 		settingsDialogElement.classList.add("mdui-dialog");
@@ -65,7 +40,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 			e.appendChild((() => {
 				let e = document.createElement("select");
 				e.example = new mdui.Select(e, {position: 'bottom'});
-				accountsSelectorExample = e.example;
 				e.setAttribute("mdui-select", "{position: 'bottom'}");
 				e.classList.add("mdui-select");
 				Object.keys(authInfos).forEach(item => {
@@ -87,10 +61,10 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.appendChild(document.createTextNode("退出登录"));
 					return e;
 				})());
-				console.log(accountsSelectorExample);
-				accountsSelectorExample.handleUpdate();
-				accountsSelectorExample.$element[0].example = accountsSelectorExample;
-				return accountsSelectorExample.$element[0];
+				e.example.handleUpdate();
+				e.example.$element[0].example = e.example;
+				console.log(e);
+				return e.example.$element[0];
 			})());
 			e.appendChild((() => {
 				let e = document.createElement("div");
@@ -100,7 +74,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 					e.classList.add("mdui-btn", "mdui-ripple");
 					e.appendChild(document.createTextNode("确认"));
 					e.addEventListener("click", event => {
-						let us = accountSettingsDialog.$element[0].children[1].children[1].example.$native[0].value;
+						let us = accountSettingsDialog.$element[0].children[1].children[1].example.$native.value;
 						if (us != ""){
 							localStorage.setItem("authInfo", authInfos[us]);
 						} else {
@@ -132,6 +106,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 								} else {
 									if(Object.keys(authInfos).indexOf(text) != -1){
 										mdui.confirm("已有重复的账号标签，是否覆盖？", "账号标签冲突", (confirm_dialog) => {
+											dialog.destroy();
 											authInfos[text] = localStorage.getItem("authInfo");
 											localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 										});
@@ -144,7 +119,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						} else {
 							mdui.alert("未登录，无法记录账号数据", "未登录");
 						}
-						updateAccountsSelector();
 						accountSettingsDialog.open();
 					});
 					return e;
@@ -158,7 +132,8 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						let us = select_element.value;
 						if (us != ""){
 							Reflect.deleteProperty(authInfos, us);
-							/* Array.from(select_element.children).forEach((i) => {
+							Array.from(select_element.children).forEach((i) => {
+								// console.log(i, select_element.children);
 								i.remove();
 							});
 							Object.keys(authInfos).forEach(item => {
@@ -175,8 +150,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 							})());
 							let example = select_element.example;
 							example.handleUpdate();
-							accountSettingsDialog.$element[0].children[1].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling); */
-							updateAccountsSelector();
+							accountSettingsDialog.$element[0].children[1].insertBefore(example.$element[0], accountSettingsDialog.$element[0].children[1].children[0].nextSibling);
 							localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 						} else {
 							accountSettingsDialog.close();
@@ -257,7 +231,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		settingsElement.classList.add("mdui-list-item", "mdui-ripple");
 		settingsElement.setAttribute("cnbilinyj-webcat-element", "account");
 		settingsElement.addEventListener("click", () => {
-			accountsSelector = accountSettingsDialog.$element[0].children[1].children[1].example.$native[0];
+			let accountsSelector = accountSettingsDialog.$element[0].children[1].children[1].example.$native[0];
 			Array.from(accountsSelector.children).forEach((i, n, a) => {
 				i.remove();
 			});
@@ -276,6 +250,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 				})());
 			});
 			accountSettingsDialog.open();
+			console.log(accountSettingsDialog);
 		});
 		e.appendChild(settingsElement);
 	}
