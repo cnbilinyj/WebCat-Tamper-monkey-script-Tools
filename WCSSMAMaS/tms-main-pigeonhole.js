@@ -14,13 +14,13 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		"authInfos": "cnbilinyj-WebCat-WCSSMAMaS--authInfos"
 	};
 	let accountSettingsDialog;
+	let accountsSelectorExample;
 	let authInfos = JSON.parse(localStorage.getItem(localStorage_key.authInfos));
 	let e = document.body;
 	if(Array.from(e.children).map(i => {
 		return i.getAttribute("cnbilinyj-webcat-element");
 	}).indexOf("account-settings-dialog") === -1){
 		let settingsDialogElement = document.createElement("div");
-		let accountsSelectorExample;
 		let updateAccountsSelector = function updateAccountsSelector () {
 			let e = accountsSelectorExample.$native[0];
 			Object.keys(authInfos).forEach(item => {
