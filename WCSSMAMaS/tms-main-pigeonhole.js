@@ -132,7 +132,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 								} else {
 									if(Object.keys(authInfos).indexOf(text) != -1){
 										mdui.confirm("已有重复的账号标签，是否覆盖？", "账号标签冲突", (confirm_dialog) => {
-											dialog.destroy();
 											authInfos[text] = localStorage.getItem("authInfo");
 											localStorage.setItem(localStorage_key.authInfos, JSON.stringify(authInfos));
 										});
@@ -145,6 +144,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 						} else {
 							mdui.alert("未登录，无法记录账号数据", "未登录");
 						}
+						updateAccountsSelector();
 						accountSettingsDialog.open();
 					});
 					return e;
@@ -275,7 +275,6 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 				})());
 			});
 			accountSettingsDialog.open();
-			console.log(accountsSelectorExample);
 		});
 		e.appendChild(settingsElement);
 	}
