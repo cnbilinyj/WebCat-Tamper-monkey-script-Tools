@@ -274,7 +274,7 @@ if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 				})());
 			});
 			accountSettingsDialog.open();
-			console.log(accountSettingsDialog);
+			console.log(accountsSelectorExample);
 		});
 		e.appendChild(settingsElement);
 	}
