@@ -54,7 +54,7 @@
 				}
 			});
 		}
-		let to_free_download = function to_free_download () {
+		let to_free_download = function to_free_download (download_url) {
 			window.location.href = download_url;
 		}
 		element.addEventListener("click", no_free_get_url);
