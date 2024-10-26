@@ -11,12 +11,16 @@
 (function() {
 	'use strict';
 	// 设置
-	let data_structure_version = "2";
+	let cache_structure_version = "2";
 	let localStorage_keys = {
 		"cache": "cnbilinyj-WebCat-WCSSPDLF&D--cache",
 		"ghdata": "cnbilinyj-WebCat-WCSSPDLF&D--ghdata",
 		"cache-structure-version": "cnbilinyj-WebCat-WCSSPDLF&D--cache-structure-version"
 	};
+	if (cache_structure_version != localStorage.getItem(localStorage_keys["cache-structure-version"])) {
+		localStorage.removeItem(localStorage_keys["cache"]);
+		localStorage.setItem(localStorage_keys["cache-structure-version"], cache_structure_version);
+	}
 	if (window.location.pathname === "/page/detail.html") {
 		let element_td = document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").parentNode;
 		document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").remove();
