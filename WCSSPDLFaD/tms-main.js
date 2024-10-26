@@ -83,7 +83,9 @@
 			element.classList.add("mdui-color-green-500");
 			element.children[0].innerHTML = "file_download";
 			element.removeEventListener("click", no_free_get_url)
-			element.addEventListener("click", to_free_download)
+			element.addEventListener("click", () => {
+				to_free_download(download_url);
+			});
 			localStorage.setItem(localStorage_keys.cache, JSON.stringify(cache));
 		}
 		let cache = JSON.parse(localStorage.getItem(localStorage_keys.cache)) || [];
