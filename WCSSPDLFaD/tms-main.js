@@ -176,7 +176,7 @@
 				no_get();
 				return;
 			}
-			if (get_local && cache[idn5][idn34][idn12].exist) {
+			if (get_local && cache[idn5][idn34][idn12] && cache[idn5][idn34][idn12].exist) {
 				get_ok(cache[idn5][idn34][idn12]);
 				return;
 			} else {
