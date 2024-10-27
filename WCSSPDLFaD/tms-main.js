@@ -11,7 +11,7 @@
 (function() {
 	'use strict';
 	// 设置缓存数据结构版本
-	let cache_structure_version = "1";
+	let cache_structure_version = "2";
 	let localStorage_keys = {
 		"cache": "cnbilinyj-WebCat-WCSSPDLF&D--cache",
 		"ghdata": "cnbilinyj-WebCat-WCSSPDLF&D--ghdata",
@@ -86,9 +86,10 @@
 			element.children[0].innerHTML = "file_download";
 			localStorage.setItem(localStorage_keys.cache, JSON.stringify(cache));
 		}
-		let get_ok = function get_ok (download_url) {
+		let get_ok = function get_ok (download_data) {
+			let download_url = download_data.url;
 			element.classList.remove("mdui-color-blue-400");
-			element.classList.add("mdui-color-green-500");
+			element.classList.add(`mdui-color-${download_data.normal ? "green" : "yellow"}-500`);
 			element.children[0].innerHTML = "file_download";
 			element.removeEventListener("click", no_free_get_url)
 			element.addEventListener("click", () => {
@@ -175,7 +176,7 @@
 				no_get();
 				return;
 			}
-			if (get_local && cache[idn5][idn34][idn12]) {
+			if (get_local && cache[idn5][idn34][idn12].exist) {
 				get_ok(cache[idn5][idn34][idn12]);
 				return;
 			} else {
@@ -187,7 +188,7 @@
 					net_data.forEach((v, i) => {
 						cache[idn5][idn34][i] = v;
 					});
-					if (net_data[idn12]) {
+					if (net_data[idn12].exist) {
 						get_ok(net_data[idn12]);
 					} else {
 						no_get();
