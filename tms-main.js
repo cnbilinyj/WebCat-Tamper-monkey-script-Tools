@@ -18,7 +18,7 @@
 	}
 	if (use_settings.WCSSPDLF_D && (["/", "/index.html", "/page/detail.html", "/GitHubOAuth"]).indexOf(window.location.pathname) != -1){
 		let WCSSPDLF_D = document.createElement("script");
-		WCSSPDLF_D.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main.js?timestamp=${new Date().valueOf()}`);
+		WCSSPDLF_D.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/WCSSPDLFaD/tms-main${use_settings.WCSSPDLF_D_pigeonhole?"-pigeonhole":""}.js?timestamp=${new Date().valueOf()}`);
 		document.documentElement.appendChild(WCSSPDLF_D);
 	}
 	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
@@ -183,6 +183,32 @@
 								e.addEventListener("click", () => {
 									e2.checked = !e2.checked;
 									use_settings.WCSSPDLF_D = e2.checked;
+								});
+								e.appendChild(e2);
+								e.appendChild((() => {
+									let e = document.createElement("i");
+									e.classList.add("mdui-switch-icon")
+									return e;
+								})());
+								e.classList.add("mdui-switch");
+								return e;
+							})());
+							e.appendChild(document.createElement("br"));
+							e.appendChild(document.createElement("br"));
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								e.appendChild(document.createTextNode("测试版"));
+								return e;
+							})());
+							e.appendChild(document.createElement("br"));
+							e.appendChild((() => {
+								let e = document.createElement("lable");
+								let e2 = document.createElement("input");
+								e2.type = "checkbox";
+								e2.checked = use_settings.WCSSPDLF_D_pigeonhole;
+								e.addEventListener("click", () => {
+									e2.checked = !e2.checked;
+									use_settings.WCSSPDLF_D_pigeonhole = e2.checked;
 								});
 								e.appendChild(e2);
 								e.appendChild((() => {

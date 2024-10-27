@@ -10,13 +10,14 @@
 // ==/UserScript==
 (function() {
 	'use strict';
-	// 设置
-	let cache_structure_version = "2";
+	// 设置缓存数据结构版本
+	let cache_structure_version = "1";
 	let localStorage_keys = {
 		"cache": "cnbilinyj-WebCat-WCSSPDLF&D--cache",
 		"ghdata": "cnbilinyj-WebCat-WCSSPDLF&D--ghdata",
 		"cache-structure-version": "cnbilinyj-WebCat-WCSSPDLF&D--cache-structure-version"
 	};
+	// 如果缓存数据结构版本更新，清空缓存
 	if (cache_structure_version != localStorage.getItem(localStorage_keys["cache-structure-version"])) {
 		localStorage.removeItem(localStorage_keys["cache"]);
 		localStorage.setItem(localStorage_keys["cache-structure-version"], cache_structure_version);
