@@ -139,7 +139,7 @@
 		}
 		let get_34 = function get_34 (urln, get_local) {
 			let idn5 = parseInt(id.slice(0, -4));
-			let idn34 = parseInt(id.slice(-4, -2));
+			let idn34 = id.slice(-4, -2);
 			if (urln >= urls.length) {
 				no_get();
 				return;
@@ -169,7 +169,7 @@
 			}
 		}
 		let get_12 = function get_12 (urln, get_local) {
-			let idn5 = id.slice(0, -4);
+			let idn5 = parseInt(id.slice(0, -4));
 			let idn34 = id.slice(-4, -2);
 			let idn12 = id.slice(-2);
 			if (urln >= urls.length) {
