@@ -139,7 +139,7 @@
 		}
 		let get_34 = function get_34 (urln, get_local) {
 			let idn5 = parseInt(id.slice(0, -4));
-			let idn34 = id.slice(-4, -2);
+			let idn34 = parseInt(id.slice(-4, -2));
 			if (urln >= urls.length) {
 				no_get();
 				return;
@@ -170,8 +170,8 @@
 		}
 		let get_12 = function get_12 (urln, get_local) {
 			let idn5 = parseInt(id.slice(0, -4));
-			let idn34 = id.slice(-4, -2);
-			let idn12 = id.slice(-2);
+			let idn34 = parseInt(id.slice(-4, -2));
+			let idn12 = parseInt(id.slice(-2));
 			if (urln >= urls.length) {
 				no_get();
 				return;
@@ -182,7 +182,7 @@
 			} else {
 				let url_ = urls[urln];
 				let get_12_xhr = new XMLHttpRequest();
-				get_12_xhr.open("GET", `${url_}${idn5}/${idn34}.json?timestamp=${new Date().getTime()}`, true);
+				get_12_xhr.open("GET", `${url_}${idn5}/${idn34.toString().padStart(2, "0")}.json?timestamp=${new Date().getTime()}`, true);
 				get_12_xhr.addEventListener("load", event => {
 					let net_data = JSON.parse(event.target.responseText);
 					net_data.forEach((v, i) => {
