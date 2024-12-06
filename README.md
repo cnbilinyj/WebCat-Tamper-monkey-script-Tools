@@ -15,6 +15,8 @@
 
 # WebCat篡改猴工具
 
+可以直接在[这里](https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js)获得篡改猴脚本，全选复制，粘贴在篡改猴拓展中
+
 ## WebCat共享空间项目直链获取与下载
 
 事实上我没有办法通过其他任何前端方案获取，因为如果想要获取的话，那必须得要使用鉴权token，但是我并没有能够无限下载项目的token，所以只能说使用自动更新的油猴脚本（官方的名称叫**篡改猴**）在后续更新出下载逻辑重写功能

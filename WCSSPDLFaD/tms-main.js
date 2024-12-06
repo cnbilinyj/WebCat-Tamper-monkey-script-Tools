@@ -182,7 +182,7 @@
 			} else {
 				let url_ = urls[urln];
 				let get_12_xhr = new XMLHttpRequest();
-				get_12_xhr.open("GET", `${url_}${idn5}/${idn34}.json?timestamp=${new Date().getTime()}`, true);
+				get_12_xhr.open("GET", `${url_}${idn5}/${idn34.toString().padStart(2, "0")}.json?timestamp=${new Date().getTime()}`, true);
 				get_12_xhr.addEventListener("load", event => {
 					let net_data = JSON.parse(event.target.responseText);
 					net_data.forEach((v, i) => {
