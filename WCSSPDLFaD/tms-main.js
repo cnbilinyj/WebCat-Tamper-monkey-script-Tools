@@ -37,7 +37,7 @@
 				},
 				async: true,
 				success(data) {
-					if (data.success) {
+					if (data.success && ghdata.enableShare) {
 						var info = data.data;
 						var fileUrl = info.fileUrl;
 						$.ajax({

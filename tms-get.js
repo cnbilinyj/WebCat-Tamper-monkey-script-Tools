@@ -6,7 +6,8 @@
 // @author       cnbilinyj
 // @match        *://space.webcat.top/*
 // @icon         http://x.webcat.top/img/icon.png
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @connect      api.bilibili.com
 // @run-at       document-end
 // @downloadURL  https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js
 // @updateURL    https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js
@@ -16,6 +17,7 @@
     let script = document.createElement("script");
     script.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-main.js?timestamp=${new Date().valueOf()}`);
     document.documentElement.appendChild(script);
+    console.log(GM_xmlhttpRequest);
     // document.write(document.documentElement.outerHTML);
     // Your code here...
 })();
