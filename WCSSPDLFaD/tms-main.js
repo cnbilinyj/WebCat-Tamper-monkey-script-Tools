@@ -47,7 +47,8 @@
 								type: "POST",
 								data: JSON.stringify({
 									"title": `对\`${id}\`的URL增加`,
-									"body": `${id}\n\n${fileUrl}`
+									"body": `${id}\n\n${fileUrl}`,
+									"labels": ["addlink"]
 								}),
 								dataType: "json",
 								headers: {
