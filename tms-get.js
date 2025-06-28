@@ -7,7 +7,7 @@
 // @match        *://space.webcat.top/*
 // @icon         http://x.webcat.top/img/icon.png
 // @grant        GM_xmlhttpRequest
-// @connect      api.bilibili.com
+// @connect      api.github.com
 // @run-at       document-end
 // @downloadURL  https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js
 // @updateURL    https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js
