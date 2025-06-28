@@ -17,6 +17,7 @@
 		"ghdata": "cnbilinyj-WebCat-WCSSPDLF&D--ghdata",
 		"cache-structure-version": "cnbilinyj-WebCat-WCSSPDLF&D--cache-structure-version"
 	};
+	let ghdata = JSON.parse(localStorage.getItem(localStorage_keys.ghdata) || "{}");
 	// 如果缓存数据结构版本更新，清空缓存
 	if (cache_structure_version != localStorage.getItem(localStorage_keys["cache-structure-version"])) {
 		localStorage.removeItem(localStorage_keys["cache"]);
@@ -203,7 +204,6 @@
 		get_5(0);
 		mdui.mutation();
 	} else if ((["/", "/index.html"]).indexOf(window.location.pathname) !== -1) {
-		let ghdata = JSON.parse(localStorage.getItem(localStorage_keys.ghdata) || "{}");
 		let e = document.getElementById("left-drawer").getElementsByClassName("mdui-list")[0];
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
@@ -274,7 +274,7 @@
 										let e = document.createElement("input");
 										es[0] = e;
 										e.setAttribute("type", "checkbox");
-										e.checked = ghdata.enableShare;
+										e.checked = ghdata.enableShare || false;
 										return e;
 									})());
 									e.appendChild((() => {
