@@ -370,26 +370,54 @@
 		let search_keys = searchs.map(i => i[0]);
 		let code = searchs[search_keys.indexOf("code")][1];
 		let data = {};
-		let get_token_xhr = new XMLHttpRequest();
-		get_token_xhr.open("GET", `http://142.171.24.215/get_github_app_token.php?code=${code}`, true);
-		get_token_xhr.addEventListener("load", event => {
-			let token = JSON.parse(event.target.responseText).access_token;
-			let get_user_info_xhr = new XMLHttpRequest();
-			get_user_info_xhr.open("GET", "https://api.github.com/user", true);
-			get_user_info_xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-			get_user_info_xhr.addEventListener("load", event => {
-				let user_data = JSON.parse(event.target.responseText);
-				data.token = token;
-				data.login = user_data.login;
-				data.name = user_data.name;
-				localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(data));
-				let url = new URL(location.href);
-				url.pathname = "/";
-				url.search = `?${searchs[search_keys.indexOf("isDark")].join("=")}`;
-				window.location = url;
-			});
-			get_user_info_xhr.send();
+
+		document.GM_xmlhttpRequest({
+			method: "POST",
+			url: "https://github.com/login/oauth/access_token",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			},
+			data: JSON.stringify({
+				client_id: "Ov23liEv01MZjaAt1Ocy",
+				client_secret: "a264c8d26ff9b5a1f98e2626aa7e74687afbe209",
+				code: code
+			}),
+			onload: function(response1) {
+				if (response1.status >= 200 && response1.status < 300) {
+					let tokenData = JSON.parse(response1.responseText);
+					let token = tokenData.access_token;
+					
+					document.GM_xmlhttpRequest({
+						method: "GET",
+						url: "https://api.github.com/user",
+						headers: {
+							"Authorization": `Bearer ${token}`,
+							"Accept": "application/json"
+						},
+						onload: function(response2) {
+							let user_data = JSON.parse(response2.responseText);
+							data.token = token;
+							data.login = user_data.login;
+							data.name = user_data.name;
+							localStorage.setItem(localStorage_keys.ghdata, JSON.stringify(data));
+							
+							let url = new URL(location.href);
+							url.pathname = "/";
+							url.search = `?${searchs[search_keys.indexOf("isDark")].join("=")}`;
+							window.location = url;
+						},
+						onerror: function(error) {
+							console.error("Error fetching user data:", error);
+						}
+					});
+				} else {
+					console.error("Error exchanging code for token:", response1.statusText);
+				}
+			},
+			onerror: function(error) {
+				console.error("Request failed:", error);
+			}
 		});
-		get_token_xhr.send();
 	}
 })();

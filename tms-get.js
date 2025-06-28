@@ -12,12 +12,13 @@
 // @downloadURL  https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js
 // @updateURL    https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-get.js
 // ==/UserScript==
+
 (function() {
     'use strict';
     let script = document.createElement("script");
     script.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-main.js?timestamp=${new Date().valueOf()}`);
     document.documentElement.appendChild(script);
-    console.log(GM_xmlhttpRequest);
+    document.GM_xmlhttpRequest = GM_xmlhttpRequest;
     // document.write(document.documentElement.outerHTML);
     // Your code here...
 })();
