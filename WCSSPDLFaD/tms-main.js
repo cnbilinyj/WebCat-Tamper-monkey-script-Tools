@@ -42,7 +42,7 @@
 						var info = data.data;
 						var fileUrl = info.fileUrl;
 						$.ajax({
-							url: "https://api.github.com/repos/cnbilinyj/WebCat-Tamper-monkey-script-Tools/issues",
+							url: "https://api.github.com/repos/cnbilinyj/WebCat-Tamper-monkey-script-Tools/issues/",
 							type: "POST",
 							data: JSON.stringify({
 								"title": `对\`${id}\`的URL增加`,
