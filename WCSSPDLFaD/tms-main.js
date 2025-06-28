@@ -371,7 +371,9 @@
 		let searchs = window.location.search.slice(1).split("&").map(i => i.split("="));
 		let search_keys = searchs.map(i => i[0]);
 		let code = searchs[search_keys.indexOf("code")][1];
-		let data = {};
+		let data = {
+			"enableShare": ghdata.enableShare || false
+		};
 
 		document.GM_xmlhttpRequest({
 			method: "POST",
