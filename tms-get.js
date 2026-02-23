@@ -18,7 +18,37 @@
     let script = document.createElement("script");
     script.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-main.js?timestamp=${new Date().valueOf()}`);
     document.documentElement.appendChild(script);
-    document.GM_xmlhttpRequest = GM_xmlhttpRequest;
+    document.GM_xmlhttpRequest = GM_xmlhttpRequest ｜｜ function(options) {
+		// 备份原始回调
+		const { onload, onerror, ...restOptions } = options;
+
+		// 构建传给 $.ajax 的配置
+		const ajaxOptions = {
+			...restOptions, // 保留 method, url, headers, data, timeout 等
+			success: function(data, textStatus, xhr) {
+				if (onload) {
+					// 构造 GM_xmlhttpRequest 风格的响应对象
+					const resp = {
+						responseText: xhr.responseText,
+						status: xhr.status,
+						statusText: xhr.statusText,
+						responseHeaders: xhr.getAllResponseHeaders(), // 字符串形式
+						finalUrl: xhr.responseURL,
+					};
+					onload(resp);
+				}
+			},
+			error: function(xhr, textStatus, errorThrown) {
+				if (onerror) {
+					const errorMsg = errorThrown || textStatus || 'Request failed';
+					onerror(errorMsg);
+				}
+			}
+		};
+
+		// 调用 MDUI 的 $.ajax
+		$.ajax(ajaxOptions);
+	};
     // document.write(document.documentElement.outerHTML);
     // Your code here...
 })();

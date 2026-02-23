@@ -378,7 +378,12 @@
 
 		document.GM_xmlhttpRequest({
 			method: "POST",
-			url: "https://github.com/login/oauth/access_token",
+			url: (() => {
+				url = new URL("https://looseice-furry-vcard.ggff.net/http_proxy.php");
+				url.searchParams.set("url", "https://github.com/login/oauth/access_token");
+				url.searchParams.set("cors", "1");
+				return url.href;
+			}),
 			headers: {
 				"Content-Type": "application/json",
 				"Accept": "application/json"
@@ -395,7 +400,12 @@
 					
 					document.GM_xmlhttpRequest({
 						method: "GET",
-						url: "https://api.github.com/user",
+						url: (() => {
+							url = new URL("https://looseice-furry-vcard.ggff.net/http_proxy.php");
+							url.searchParams.set("url", "https://api.github.com/user");
+							url.searchParams.set("cors", "1");
+							return url.href;
+						}),
 						headers: {
 							"Authorization": `Bearer ${token}`,
 							"Accept": "application/json"
