@@ -59,6 +59,14 @@
 								}
 							});
 						}
+						if (version == "5.21") {
+							iapp.fn('source.hdSource("' + fileUrl + '","' + appName + '");');
+							return;
+						}
+						if (version == "6.0") {
+							source.hdSource(fileUrl, appName);
+							return;
+						}
 						window.location.href = fileUrl;
 					} else {
 						mdui.alert(data.message);
