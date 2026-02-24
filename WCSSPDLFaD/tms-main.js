@@ -75,6 +75,14 @@
 			});
 		}
 		let to_free_download = function to_free_download (download_url) {
+			if (version == "5.21") {
+				iapp.fn('source.hdSource("' + fileUrl + '","' + appName + '");');
+				return;
+			}
+			if (version == "6.0") {
+				source.hdSource(fileUrl, appName);
+				return;
+			}
 			window.location.href = download_url;
 		}
 		element.addEventListener("click", no_free_get_url);
