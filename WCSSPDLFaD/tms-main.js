@@ -24,10 +24,11 @@
 		localStorage.setItem(localStorage_keys["cache-structure-version"], cache_structure_version);
 	}
 	if (window.location.pathname === "/page/detail.html") {
-		let element_td = document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").parentNode;
-		document.querySelector("button[class=\"mdui-btn mdui-btn-icon mdui-color-pink-400 mdui-ripple\"").remove();
-		let element = document.createElement("a");
-		element.setAttribute("class", "mdui-btn mdui-btn-icon mdui-color-blue-400 mdui-ripple");
+		let element_rm = document.querySelector("button.btn-download");
+		let element_td = element_rm.parentNode;
+		element_rm.remove();
+		let element = document.createElement("button");
+		element.setAttribute("class", "btn-download");
 		let no_free_get_url = function no_free_get_url () {
 			$.ajax({
 				url: "http://source.webcat.top/source/querySourceUrlById",
@@ -87,11 +88,12 @@
 		}
 		element.addEventListener("click", no_free_get_url);
 		element.appendChild((() => {
-			let e = document.createElement("i");
-			e.setAttribute("class", "mdui-icon material-icons");
-			e.innerHTML = "more_horiz";
+			let e = document.createElement("svg");
+			e.outerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
 			return e;
 		})());
+		let download_prompt_text = document.createTextNode;
+		download_prompt_text.textContent = "加载中...";
 		element_td.appendChild(element);
 		let id = window.location.search.split("?")[1].split("&")[window.location.search.split("?")[1].split("&").map(i => {
 			return i.split("=")[0].toLowerCase()
@@ -101,16 +103,12 @@
 			"https://jsd.cdn.zzko.cn/gh/cnbilinyj/WebCat-Tamper-monkey-script-Tools@main/WCSSPDLFaD/data/"
 		];
 		let no_get = function no_get () {
-			element.classList.remove("mdui-color-blue-400");
-			element.classList.add("mdui-color-red-500");
-			element.children[0].innerHTML = "file_download";
+			download_prompt_text.textContent = "普通下载";
 			localStorage.setItem(localStorage_keys.cache, JSON.stringify(cache));
 		}
 		let get_ok = function get_ok (download_data) {
 			let download_url = download_data.url;
-			element.classList.remove("mdui-color-blue-400");
-			element.classList.add(`mdui-color-${download_data.normal ? "green" : "yellow"}-500`);
-			element.children[0].innerHTML = "file_download";
+			download_prompt_text.textContent = "免费下载";
 			element.removeEventListener("click", no_free_get_url)
 			element.addEventListener("click", () => {
 				to_free_download(download_url);
