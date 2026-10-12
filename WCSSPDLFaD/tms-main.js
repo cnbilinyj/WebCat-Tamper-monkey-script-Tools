@@ -101,9 +101,8 @@
 			e.innerHTML = '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line>';
 			return e;
 		})());
-		let download_prompt_text = document.createTextNode;
+		let download_prompt_text = document.createTextNode("加载中...");
 		element.appendChild(download_prompt_text)
-		download_prompt_text.textContent = "加载中...";
 		element_td.appendChild(element);
 		let id = window.location.search.split("?")[1].split("&")[window.location.search.split("?")[1].split("&").map(i => {
 			return i.split("=")[0].toLowerCase()
