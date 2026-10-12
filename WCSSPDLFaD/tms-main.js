@@ -88,7 +88,7 @@
 		}
 		element.addEventListener("click", no_free_get_url);
 		element.appendChild((() => {
-			let e = document.createElement("svg");
+			let e = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 			e.setAttribute("width", 18);
 			e.setAttribute("height", 18);
 			e.setAttribute("viewBox", "0 0 24 24");
@@ -102,7 +102,7 @@
 			return e;
 		})());
 		let download_prompt_text = document.createTextNode("加载中...");
-		element.appendChild(download_prompt_text)
+		element.appendChild(download_prompt_text);
 		element_td.appendChild(element);
 		let id = window.location.search.split("?")[1].split("&")[window.location.search.split("?")[1].split("&").map(i => {
 			return i.split("=")[0].toLowerCase()
