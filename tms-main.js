@@ -24,6 +24,9 @@
 	if((["/", "/index.html"]).indexOf(window.location.pathname) != -1){
 		let drawer = document.getElementById("left-drawer");
 		let e = drawer.getElementsByClassName("mdui-list")[0];
+		if (version == "6.0") {
+			e.style.paddingBottom = '90px';
+		}
 		if(Array.from(e.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
 		}).indexOf("settings") === -1){
