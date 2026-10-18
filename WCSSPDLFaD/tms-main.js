@@ -12,11 +12,9 @@
 	'use strict';
 	// 设置缓存数据结构版本
 	let cache_structure_version = "2";
-	let localStorage_keys = {
-		"cache": "cnbilinyj-WebCat-WCSSPDLF&D--cache",
-		"ghdata": "cnbilinyj-WebCat-WCSSPDLF&D--ghdata",
-		"cache-structure-version": "cnbilinyj-WebCat-WCSSPDLF&D--cache-structure-version"
-	};
+	localStorage_keys["cache"] = "cnbilinyj-WebCat-WCSSPDLF&D--cache";
+	localStorage_keys["ghdata"] = "cnbilinyj-WebCat-WCSSPDLF&D--ghdata";
+	localStorage_keys["cache-structure-version"] = "cnbilinyj-WebCat-WCSSPDLF&D--cache-structure-version";
 	let ghdata = JSON.parse(localStorage.getItem(localStorage_keys.ghdata) || "{}");
 	// 如果缓存数据结构版本更新，清空缓存
 	if (cache_structure_version != localStorage.getItem(localStorage_keys["cache-structure-version"])) {
