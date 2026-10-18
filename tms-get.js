@@ -14,11 +14,11 @@
 // ==/UserScript==
 
 (function() {
-    'use strict';
-    let script = document.createElement("script");
-    script.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-main.js?timestamp=${new Date().valueOf()}`);
-    document.documentElement.appendChild(script);
-    document.GM_xmlhttpRequest = typeof GM_xmlhttpRequest !== "undefined" ? GM_xmlhttpRequest : function(options) {
+	'use strict';
+	let script = document.createElement("script");
+	script.setAttribute("src", `https://cnbilinyj.github.io/WebCat-Tamper-monkey-script-Tools/tms-main.js?timestamp=${new Date().valueOf()}`);
+	document.documentElement.appendChild(script);
+	document.GM_xmlhttpRequest = typeof GM_xmlhttpRequest !== "undefined" ? GM_xmlhttpRequest : function(options) {
 		// 备份原始回调
 		const { onload, onerror, ...restOptions } = options;
 
