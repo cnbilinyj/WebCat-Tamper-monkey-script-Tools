@@ -10,6 +10,7 @@
 // ==/UserScript==
 (function() {
 	'use strict';
+	window.localStorage_keys = {};
 	let use_settings = JSON.parse(localStorage.getItem("cnbilinyj-WebCat-settings")) || {};
 	if (use_settings.WCSSMAM_S && (["/", "/index.html"]).indexOf(window.location.pathname) != -1) {
 		let WCSSMAM_S = document.createElement("script");
