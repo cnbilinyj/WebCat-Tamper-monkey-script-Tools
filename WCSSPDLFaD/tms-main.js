@@ -59,11 +59,11 @@
 							});
 						}
 						if (version == "5.21") {
-							iapp.fn('source.hdSource("' + fileUrl + '","' + appName + '");');
+							iapp.fn('source.hdSource("' + fileUrl + '","' + vue.detailInfo.name + '");');
 							return;
 						}
 						if (version == "6.0") {
-							source.hdSource(fileUrl, appName);
+							source.hdSource(fileUrl, vue.detailInfo.name);
 							return;
 						}
 						window.location.href = fileUrl;
@@ -75,11 +75,11 @@
 		}
 		let to_free_download = function to_free_download (download_url) {
 			if (version == "5.21") {
-				iapp.fn('source.hdSource("' + download_url + '","' + appName + '");');
+				iapp.fn('source.hdSource("' + download_url + '","' + vue.detailInfo.name + '");');
 				return;
 			}
 			if (version == "6.0") {
-				source.hdSource(download_url, appName);
+				source.hdSource(download_url, vue.detailInfo.name);
 				return;
 			}
 			window.location.href = download_url;
