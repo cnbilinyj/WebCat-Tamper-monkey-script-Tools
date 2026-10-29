@@ -255,7 +255,7 @@
 							console.log(use_settings);
 							localStorage.setItem("cnbilinyj-WebCat-settings", JSON.stringify(use_settings));
 							mdui.alert("需要刷新才能应用设置", "需要刷新", function () {
-								location.reload();
+								setTimeout(location.reload, 250);
 							});
 						});
 						return e;
