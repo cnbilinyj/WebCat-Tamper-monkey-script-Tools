@@ -59,6 +59,38 @@
 			settingsElement.setAttribute("cnbilinyj-webcat-element", "settings");
 			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
 			e.appendChild(settingsElement);
+			settingsElement.classList.add("mdui-list-item", "mdui-ripple");
+			settingsElement.setAttribute("cnbilinyj-webcat-element", "settings");
+			settingsElement.setAttribute("mdui-dialog", "{target: 'div.mdui-dialog[cnbilinyj-webcat-element=\\'settings-dialog\\']'}");
+			e.appendChild(settingsElement);
+			// 刷新
+			let reloadElement = document.createElement("li");
+			reloadElement.appendChild((() => {
+				let e = document.createElement("i");
+				e.classList.add("mdui-list-item-avatar", "mdui-icon", "material-icons", "mdui-color-deep-purple-400", "mdui-text-color-white");
+				e.appendChild(document.createTextNode("refresh"));
+				return e;
+			})());
+			reloadElement.appendChild((() => {
+				let e = document.createElement("div");
+				e.classList.add("mdui-list-item-content");
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-list-item-title");
+					e.appendChild(document.createTextNode("刷新"));
+					return e;
+				})());
+				e.appendChild((() => {
+					let e = document.createElement("div");
+					e.classList.add("mdui-list-item-text");
+					e.appendChild(document.createTextNode("刷新能解决 99% 的问题"));
+					return e;
+				})());
+				return e;
+			})());
+			reloadElement.classList.add("mdui-list-item", "mdui-ripple");
+			reloadElement.setAttribute("cnbilinyj-webcat-element", "reload");
+			e.appendChild(reloadElement);
 		}
 		if(Array.from(document.body.children).map(i => {
 			return i.getAttribute("cnbilinyj-webcat-element");
