@@ -90,6 +90,7 @@
 			})());
 			reloadElement.classList.add("mdui-list-item", "mdui-ripple");
 			reloadElement.setAttribute("cnbilinyj-webcat-element", "reload");
+			reloadElement.onclick = location.reload;
 			e.appendChild(reloadElement);
 		}
 		if(Array.from(document.body.children).map(i => {
